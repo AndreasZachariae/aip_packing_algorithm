@@ -4,8 +4,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 #from Pack_Algorithm import Order_class
-from Pack_Algorithm import Order_class
-from Pack_Algorithm import Pack_Algorithm
+from Classes.topic_data import Order_class
 
 
 class OrderSubscriber(Node):
@@ -30,7 +29,8 @@ class OrderSubscriber(Node):
         self.get_logger().info(f'Received Order: {msg.data}')
         Order_class.set_topic_data(msg.data)
         print(Order_class.get_topic_data())
-        #Pack_Algorithm.main()
+        from Pack_Algorithm import Pack_Algorithm
+        Pack_Algorithm.generate_output()
 
 
 
