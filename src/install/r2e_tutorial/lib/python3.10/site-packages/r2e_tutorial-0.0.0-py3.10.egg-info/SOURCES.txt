@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../build/r2e_tutorial/r2e_tutorial.egg-info/PKG-INFO
+../build/r2e_tutorial/r2e_tutorial.egg-info/SOURCES.txt
+../build/r2e_tutorial/r2e_tutorial.egg-info/dependency_links.txt
+../build/r2e_tutorial/r2e_tutorial.egg-info/entry_points.txt
+../build/r2e_tutorial/r2e_tutorial.egg-info/requires.txt
+../build/r2e_tutorial/r2e_tutorial.egg-info/top_level.txt
+../build/r2e_tutorial/r2e_tutorial.egg-info/zip-safe
+r2e_tutorial/__init__.py
+r2e_tutorial/example.py
+resource/r2e_tutorial
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

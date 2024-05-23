@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot name="kuka_kr10_cell" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="$(find kuka_kr10r1100sixx_cell_description)/urdf/kr10_container_x04_macro.xacro"/>
+    <xacro:include filename="$(find kuka_kr10r1100sixx_cell_description)/urdf/kr10_macro.ros2_control.xacro"/>
+    <xacro:arg name="initial_positions_file" default="$(find kuka_kr10r1100sixx_cell_description)/config/initial_positions.yaml"/>
+    <xacro:arg name="robot_ip" default="10.181.116.41"/>
+    <xacro:arg name="robot_port" default="54600"/>
+    <xacro:arg name="use_fake_hardware" default="true"/>
+    <xacro:kuka_kr10r1100sixx prefix="" initial_positions_file="$(arg initial_positions_file)"
+                              robot_ip="$(arg robot_ip)" robot_port="$(arg robot_port)"
+                              use_fake_hardware="$(arg use_fake_hardware)"/>
+    
+    <xacro:kr10_gripper_ros2_control
+    name="gripper_control"
+    prefix=""
+    use_fake_hardware="$(arg use_fake_hardware)" />
+
+</robot>

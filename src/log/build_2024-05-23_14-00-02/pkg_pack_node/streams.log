@@ -1,0 +1,43 @@
+[0.691s] Invoking command in '/home/robot/ros_ws/src/pkg_pack_node': PYTHONPATH=/home/robot/ros_ws/src/build/pkg_pack_node/prefix_override:/home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/pkg_pack_node build --build-base /home/robot/ros_ws/src/build/pkg_pack_node/build install --record /home/robot/ros_ws/src/build/pkg_pack_node/install.log --single-version-externally-managed
+[0.860s] running egg_info
+[0.860s] creating ../build/pkg_pack_node/pkg_pack_node.egg-info
+[0.860s] writing ../build/pkg_pack_node/pkg_pack_node.egg-info/PKG-INFO
+[0.861s] writing dependency_links to ../build/pkg_pack_node/pkg_pack_node.egg-info/dependency_links.txt
+[0.861s] writing entry points to ../build/pkg_pack_node/pkg_pack_node.egg-info/entry_points.txt
+[0.861s] writing requirements to ../build/pkg_pack_node/pkg_pack_node.egg-info/requires.txt
+[0.861s] writing top-level names to ../build/pkg_pack_node/pkg_pack_node.egg-info/top_level.txt
+[0.861s] writing manifest file '../build/pkg_pack_node/pkg_pack_node.egg-info/SOURCES.txt'
+[0.862s] reading manifest file '../build/pkg_pack_node/pkg_pack_node.egg-info/SOURCES.txt'
+[0.862s] adding license file 'LICENSE'
+[0.862s] writing manifest file '../build/pkg_pack_node/pkg_pack_node.egg-info/SOURCES.txt'
+[0.862s] running build
+[0.862s] running build_py
+[0.863s] creating /home/robot/ros_ws/src/build/pkg_pack_node/build
+[0.863s] creating /home/robot/ros_ws/src/build/pkg_pack_node/build/lib
+[0.863s] creating /home/robot/ros_ws/src/build/pkg_pack_node/build/lib/pkg_pack_node
+[0.863s] copying pkg_pack_node/pack_node.py -> /home/robot/ros_ws/src/build/pkg_pack_node/build/lib/pkg_pack_node
+[0.863s] copying pkg_pack_node/__init__.py -> /home/robot/ros_ws/src/build/pkg_pack_node/build/lib/pkg_pack_node
+[0.863s] copying pkg_pack_node/Pack_Algorithm.py -> /home/robot/ros_ws/src/build/pkg_pack_node/build/lib/pkg_pack_node
+[0.863s] running install
+[0.864s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.864s]   warnings.warn(
+[0.865s] running install_lib
+[0.865s] creating /home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages/pkg_pack_node
+[0.865s] copying /home/robot/ros_ws/src/build/pkg_pack_node/build/lib/pkg_pack_node/pack_node.py -> /home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages/pkg_pack_node
+[0.865s] copying /home/robot/ros_ws/src/build/pkg_pack_node/build/lib/pkg_pack_node/__init__.py -> /home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages/pkg_pack_node
+[0.865s] copying /home/robot/ros_ws/src/build/pkg_pack_node/build/lib/pkg_pack_node/Pack_Algorithm.py -> /home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages/pkg_pack_node
+[0.866s] byte-compiling /home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages/pkg_pack_node/pack_node.py to pack_node.cpython-310.pyc
+[0.866s] byte-compiling /home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages/pkg_pack_node/__init__.py to __init__.cpython-310.pyc
+[0.866s] byte-compiling /home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages/pkg_pack_node/Pack_Algorithm.py to Pack_Algorithm.cpython-310.pyc
+[0.867s] running install_data
+[0.868s] creating /home/robot/ros_ws/src/install/pkg_pack_node/share/ament_index
+[0.868s] creating /home/robot/ros_ws/src/install/pkg_pack_node/share/ament_index/resource_index
+[0.868s] creating /home/robot/ros_ws/src/install/pkg_pack_node/share/ament_index/resource_index/packages
+[0.868s] copying resource/pkg_pack_node -> /home/robot/ros_ws/src/install/pkg_pack_node/share/ament_index/resource_index/packages
+[0.868s] copying package.xml -> /home/robot/ros_ws/src/install/pkg_pack_node/share/pkg_pack_node
+[0.868s] running install_egg_info
+[0.869s] Copying ../build/pkg_pack_node/pkg_pack_node.egg-info to /home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages/pkg_pack_node-0.0.0-py3.10.egg-info
+[0.870s] running install_scripts
+[0.885s] Installing pack_node script to /home/robot/ros_ws/src/install/pkg_pack_node/lib/pkg_pack_node
+[0.885s] writing list of installed files to '/home/robot/ros_ws/src/build/pkg_pack_node/install.log'
+[0.922s] Invoked command in '/home/robot/ros_ws/src/pkg_pack_node' returned '0': PYTHONPATH=/home/robot/ros_ws/src/build/pkg_pack_node/prefix_override:/home/robot/ros_ws/src/install/pkg_pack_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/pkg_pack_node build --build-base /home/robot/ros_ws/src/build/pkg_pack_node/build install --record /home/robot/ros_ws/src/build/pkg_pack_node/install.log --single-version-externally-managed
