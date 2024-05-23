@@ -11,6 +11,7 @@ setup.py
 ../build/pkg_pack_node/pkg_pack_node.egg-info/zip-safe
 pkg_pack_node/Pack_Algorithm.py
 pkg_pack_node/__init__.py
+pkg_pack_node/order_subscriber.py
 pkg_pack_node/pack_node.py
 resource/pkg_pack_node
 test/test_copyright.py

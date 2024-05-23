@@ -95,6 +95,17 @@ from cython_files.cython_part import Calculate_Overlapping_Areas
 
 from Classes.order_data_transfer import order_data_transfer
 
+global Order_class
+class Order_class:
+    _topic_data = ""
+
+    @classmethod
+    def get_topic_data(cls):
+        return cls._topic_data
+    
+    @classmethod
+    def set_topic_data(cls,topic_data):
+        cls._topic_data = topic_data
 
 # # Ausführen des Algorithmus mit Line-by-Line-Profiler 
 # %load_ext line_profiler
@@ -118,7 +129,11 @@ material_master = {
 
 material_master = pd.DataFrame(material_master)
 
-order = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete", "Keilriemen_gross","Box_Gluehlampe", "Box_Gluehlampe"]
+#order = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete", "Keilriemen_gross","Box_Gluehlampe", "Box_Gluehlampe"]
+order = Order_class.get_topic_data()
+print("Order: ", order)
+order = order.split(",")
+print("Order: ", order)
 order_data = []
 # Filtere Materialstamm nach den Artikeln der Bestellung
 for item in order:
