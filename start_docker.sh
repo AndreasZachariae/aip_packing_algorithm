@@ -29,7 +29,8 @@ run_docker() {
             -e DISPLAY=$DISPLAY \
             --env-file .env \
             --rm \
-            -v $PWD/aip_packing_planning:/home/docker/ros2_ws/src/aip_packing_planning \
+            -v $PWD/pkg_pack_node:/home/docker/ros2_ws/src/pkg_pack_node \
+            -v $PWD/aip_packing_planning_interfaces:/home/docker/ros2_ws/src/aip_packing_planning_interfaces \
             -v $PWD/.vscode:/home/docker/ros2_ws/src/.vscode \
             aip_packing_planning/ros:humble \
 
