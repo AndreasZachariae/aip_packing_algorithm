@@ -49,7 +49,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 
 # Beispiel
-  "srv/UserDialog.srv"
+  # "srv/UserDialog.srv"
 
 
 
