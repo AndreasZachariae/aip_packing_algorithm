@@ -106,7 +106,6 @@ from cython_files.cython_part import Calculate_Overlapping_Areas
 # 3. Anwendung und Ergebnisausgabe
 
 from Classes.order_data_transfer import order_data_transfer
-from Classes.topic_data import Order_class
 
 
 
@@ -133,17 +132,17 @@ class Pack_Algorithm:
 
     material_master = pd.DataFrame(material_master)
 
-    #order = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete", "Keilriemen_gross","Box_Gluehlampe", "Box_Gluehlampe"]
-    order = Order_class.get_topic_data()
+    order = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete", "Keilriemen_gross","Box_Gluehlampe", "Box_Gluehlampe"]
     print("Order: ", order)
-    order = order.split(",")
-    print("Order: ", order)
+    
     order_data = []
+    
     # Filtere Materialstamm nach den Artikeln der Bestellung
     for item in order:
         filtered = material_master[material_master["Label ODTF"] == item]
         for index, row in filtered.iterrows():
             order_data.append((
+                item, # wird nur hinzugefügt um später in Ausgabe zu schreiben
                 row["Länge [mm]"], 
                 row["Breite [mm]"], 
                 row["Höhe [mm]"], 
@@ -151,7 +150,7 @@ class Pack_Algorithm:
                 row["Orientierungen"]
             ))
 
-    # print("Order data:\n", order_data)
+    print("Order data:\n", order_data)
     order_data_transfer.set_order_data(order_data)
 
     # Starte Simulation mit verschiedenen Parametern
@@ -225,81 +224,7 @@ class Pack_Algorithm:
             container_inside_y = container.width[0]
             container_outside_z = 0.200
             container_inside_z = container.height[0]
-        else: print("No container with these dimensions")
-
-        """if container.width[0] == 0.232:
-            #container X01
-            container_outside_x = 0.166
-            container_inside_x = container.length[0]
-            container_outside_y = 0.246 
-            container_inside_y = container.width[0]
-            container_outside_z = 0.123
-            container_inside_z = container.height[0]
-        elif container.width[0] == 0.252:
-            #container X02
-            container_outside_x = 0.216
-            container_inside_x = container.length[0]
-            container_outside_y = 0.266 
-            container_inside_y = container.width[0]
-            container_outside_z = 0.183
-            container_inside_z = container.height[0]
-        elif container.width[0] == 0.304:
-            #container X03
-            container_outside_x = 0.266
-            container_inside_x = container.length[0]
-            container_outside_y = 0.316 
-            container_inside_y = container.width[0]
-            container_outside_z = 0.243
-            container_inside_z = container.height[0]
-        elif container.width[0] == 0.400:
-            #container X04
-            container_outside_x = 0.312
-            container_inside_x = container.length[0]
-            container_outside_y = 0.412
-            container_inside_y = container.width[0]
-            container_outside_z = 0.225
-            container_inside_z = container.height[0]
-        elif container.width[0] == 0.435:
-            #container X05
-            container_outside_x = 0.407
-            container_inside_x = container.length[0]
-            container_outside_y = 0.452 
-            container_inside_y = container.width[0]
-            container_outside_z = 0.321
-            container_inside_z = container.height[0]
-        elif container.width[0] == 0.716:
-            #container X06
-            container_outside_x = 0.556
-            container_inside_x = container.length[0]
-            container_outside_y = 0.736
-            container_inside_y = container.width[0]
-            container_outside_z = 0.303
-            container_inside_z = container.height[0]
-        elif container.width[0] == 0.540:
-            #container X07
-            container_outside_x = 0.385
-            container_inside_x = container.length[0]
-            container_outside_y = 0.566
-            container_inside_y = container.width[0]
-            container_outside_z = 0.300
-            container_inside_z = container.height[0]
-        elif container.width[0] == 0.760:
-            #container X08
-            container_outside_x = 0.380
-            container_inside_x = container.length[0]
-            container_outside_y = 0.780
-            container_inside_y = container.width[0]
-            container_outside_z = 0.300
-            container_inside_z = container.height[0]
-        elif container.width[0] == 0.732:
-            #container X22
-            container_outside_x = 0.261
-            container_inside_x = container.length[0]
-            container_outside_y = 0.746
-            container_inside_y = container.width[0]
-            container_outside_z = 0.087
-            container_inside_z = container.height[0]"""
-        
+        else: print("No container with these dimensions")    
 
         # wall thickness of the container
         c_wall_x = (container_outside_x - container_inside_x) / 2
@@ -307,93 +232,6 @@ class Pack_Algorithm:
         c_wall_z = (container_outside_z - container_inside_z)
 
         return c_wall_x, c_wall_y, c_wall_z, container
-
-
-    def choose_cylinder(packplan):
-        
-        # piston stroke: 150 mm (Festo ADNGF-16-150-P-A)
-        gripper_extension = 0.15 
-        
-        # cylinder messages:
-        # msg_data type: [cylinder_back_left, cylinder_back_right, cylinder_front_left, cylinder_front_right]
-        global msg_cylinder
-        global index_msgs
-        global tcps_cylinder
-        msg0 = [0.0, 0.0, 0.0, 0.0]
-        msg1 = [gripper_extension, 0.0, 0.0, 0.0]
-        msg2 = [0.0, gripper_extension, 0.0, 0.0]
-        msg3 = [0.0, 0.0, gripper_extension, 0.0]
-        msg4 = [0.0, 0.0, 0.0, gripper_extension]
-        msg5 = [gripper_extension, gripper_extension, 0.0, 0.0]
-        msg6 = [0.0, gripper_extension, 0.0, gripper_extension]
-        msg7 = [gripper_extension, gripper_extension, 0.0, gripper_extension]
-        msg_cylinder = [msg0, msg1, msg2, msg3, msg4, msg5, msg6, msg7]
-
-        # choice of gripper cylinders (assumption: package_length > package_width)
-        # index_msg = index for msg_cylinder
-        # tcp_cylinder = definition of the new tcp which is at the bottom of the extended cylinder (in the middle of the combination)
-        index_msgs = []
-        tcps_cylinder = []
-        cylinder = []
-        
-        for i in range(len(packplan)):
-            str_i = str(i)
-            if packplan.width[i] <= 0.051 and packplan.weight[i] < 0.09:
-                index_msg = 3
-                index_msgs.append(index_msg)
-                cylinder.append("3")
-                # tcp_cylinder =  Affine(translation = [-0.075, 0.106, 0.281], rotation=[0.0, 0.0, 0.0])
-                # tcps_cylinder.append(tcp_cylinder)
-            elif packplan.width[i] > 0.051 and packplan.width[i] <= 0.092 and packplan.length[i] > 0.051 and packplan.length[i] <= 0.129 and packplan.weight[i] < 1.14:
-                index_msg = 1
-                index_msgs.append(index_msg)
-                cylinder.append("1")
-                # tcp_cylinder =  Affine(translation = [0.0485, 0.0815, 0.299], rotation=[0.0, 0.0, 0.0])
-                # tcps_cylinder.append(tcp_cylinder)
-            elif packplan.width[i] > 0.051 and packplan.width[i] < 0.151 and packplan.length[i] > 0.129 and packplan.length[i] <= 0.232 and packplan.weight[i] < 2.27:
-                index_msg = 2
-                index_msgs.append(index_msg)
-                cylinder.append("2")
-                # tcp_cylinder =  Affine(translation = [0.0505, -0.0495, 0.299], rotation=[0.0, 0.0, 0.0])
-                # tcps_cylinder.append(tcp_cylinder)
-            elif packplan.width[i] > 0.035 and packplan.width[i] <= 0.151 and packplan.length[i] > 0.165 and packplan.length[i] <= 0.232 and packplan.weight[i] < 3.10:
-                index_msg = 4 
-                index_msgs.append(index_msg)
-                cylinder.append("4")
-                # tcp_cylinder =  Affine(translation = [-0.0585, -0.055, 0.299], rotation=[0.0, 0.0, 0.0])
-                # tcps_cylinder.append(tcp_cylinder)
-            elif packplan.width[i] > 0.053 and packplan.width[i] <= 0.182 and packplan.length[i] > 0.232 and packplan.weight[i] < 3.41:
-                index_msg = 5
-                index_msgs.append(index_msg)
-                cylinder.append("1,2")
-                # tcp_cylinder =  Affine(translation = [0.049, -0.009, 0.299], rotation=[0.0, 0.0, 0.0])
-                # tcps_cylinder.append(tcp_cylinder)
-            elif packplan.width[i] > 0.151:
-                if packplan.length[i] <= 0.165 and packplan.weight[i] < 2.27:
-                    index_msg = 2
-                    index_msgs.append(index_msg)
-                    cylinder.append("2")
-                    # tcp_cylinder =  Affine(translation = [0.0505, -0.0495, 0.299], rotation=[0.0, 0.0, 0.0])
-                    # tcps_cylinder.append(tcp_cylinder)
-                elif packplan.length[i] > 0.165 and packplan.length[i] <= 0.243 and packplan.weight[i] < 5.37:
-                    index_msg = 6
-                    index_msgs.append(index_msg)
-                    cylinder.append("2,4")
-                    # tcp_cylinder =  Affine(translation = [-0.001, -0.054, 0.299], rotation=[0.0, 0.0, 0.0]) 
-                    # tcps_cylinder.append(tcp_cylinder)
-                elif packplan.length[i] > 0.243 and packplan.weight[i] < 6.51:
-                    index_msg = 7
-                    index_msgs.append(index_msg)
-                    cylinder.append("1,2,4")
-                    # tcp_cylinder =  Affine(translation = [-0.001, -0.015, 0.299], rotation=[0.0, 0.0, 0.0])
-                    # tcps_cylinder.append(tcp_cylinder)
-                else: print("Error: dimensions of package " + str_i + " not allowable")
-            else: print("Error: dimensions of package " + str_i + " not allowable")
-
-        packplan.insert(13, 'cylinder', cylinder)
-        Packplan.set_packplan(packplan)
-        
-        return index_msgs, tcps_cylinder
 
     def generate_output():
 
@@ -404,8 +242,9 @@ class Pack_Algorithm:
         c_wall_x, c_wall_y, c_wall_z, container = Pack_Algorithm.read_csv_container()
 
         # choose cylinder and tcp
-        index_msgs, tcps_cylinder = Pack_Algorithm.choose_cylinder(packplan)
+        # index_msgs, tcps_cylinder = Pack_Algorithm.choose_cylinder(packplan)
         packplan = Pack_Algorithm.cal_place_coordinates()
+        packplan = Pack_Algorithm.add_label_odtf()
         packplan = Pack_Algorithm.clear_packplan()
 
         print("\nPackplan:")
@@ -418,10 +257,9 @@ class Pack_Algorithm:
         return packplan, container
         
 
+    # calculate the coordinates of the place pose (center of the package + Z-direction)
     def cal_place_coordinates():
-        # calculate the coordinates of the place pose (center of the package + Z-direction)
         packplan = pd.DataFrame(Packplan.get_packplan())
-        # calculate the coordinates of the place pose (center of the package + Z-direction)
         x = []
         y = []
         z = []
@@ -431,9 +269,24 @@ class Pack_Algorithm:
             z.append(packplan.z[i] + packplan.height[i] / 2)
 
         # insert the x, y, z coordinates as columns into the packplan list
-        packplan.insert(14, 'x_pack', x)
-        packplan.insert(15, 'y_pack', y)
-        packplan.insert(16, 'z_pack', z)
+        packplan.insert(13, 'x_pack', x)
+        packplan.insert(14, 'y_pack', y)
+        packplan.insert(15, 'z_pack', z)
+
+        Packplan.set_packplan(packplan)
+
+        return packplan
+
+    # Füge Label ODTF in Packplan ein
+    def add_label_odtf():
+        packplan = pd.DataFrame(Packplan.get_packplan())
+        order_data = order_data_transfer.get_order_data()
+
+        label_odtf = []
+        for i in range(len(packplan)):
+            label_odtf.append(order_data[i][0])
+
+        packplan.insert(16, 'label_odtf', label_odtf)
 
         Packplan.set_packplan(packplan)
 
@@ -442,22 +295,22 @@ class Pack_Algorithm:
     # Nicht notwendige Spalten aus Packplan entfernen
     def clear_packplan():
         packplan = pd.DataFrame(Packplan.get_packplan())
-        packplan = packplan.drop(columns=['parallel_c_length', 'parallel_c_width', 'x', 'y', 'z', 'is_stack', 'weight', 'package_ID'])
+        packplan = packplan.drop(columns=['package_sequence_nr', 'parallel_c_length', 'parallel_c_width', 'x', 'y', 'z', 'is_stack', 'package_ID'])
         
         # Ändere Reihenfolge der Spalten
-        packplan = packplan[['package_sequence_nr', 'length', 'width', 'height', 'rotation_index', 'cylinder', 'x_pack', 'y_pack', 'z_pack']]
+        packplan = packplan[['label_odtf', 'length', 'width', 'height', 'weight', 'rotation_index', 'x_pack', 'y_pack', 'z_pack']]
         
         Packplan.set_packplan(packplan)
 
         return packplan
 
-# if __name__ == '__main__':
-#     final_packplan, final_container = Pack_Algorithm.generate_output()
+if __name__ == '__main__':
+    final_packplan, final_container = Pack_Algorithm.generate_output()
     
-#     print("\nPackplan:")
-#     print(final_packplan)
+    print("\nPackplan:")
+    print(final_packplan)
 
-#     print("\nContainer:")
-#     print(final_container)
+    print("\nContainer:")
+    print(final_container)
     
-#     print("\n### Finished ###\n")
+    print("\n### Finished ###\n")

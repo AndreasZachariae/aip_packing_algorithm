@@ -40,6 +40,9 @@ def data_preparation (order_file_name, container_file_name):
     order_data = order_data_transfer.get_order_data()
     '''Bestelldaten und Containerdaten importiert'''
     
+    # Entferne Label aus Liste
+    order_data = [item[1:] for item in order_data]
+
     '''Erzeuge die modifizierte Bestelldaten'''
 
     modified_order_data = [] # Liste zur Speicherung der modifizierten Bestelldaten
