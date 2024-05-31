@@ -34,7 +34,6 @@ build_image() {
         echo -e "${YELLOW}Building image...${NC}"
         DOCKER_BUILDKIT=1 \
         docker build \
-            --no-cache \
             --build-arg UID="$uid" \
             --build-arg GID="$gid" \
             --build-arg CACHE_BUST="$(date +%s)" \

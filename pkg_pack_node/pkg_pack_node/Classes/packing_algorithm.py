@@ -194,7 +194,7 @@ class Packing_Algorithm:
         
         # Visualisere gepackte Container der besten Lösung
         self.best_solution_improve.print_packplan()
-        self.best_solution_improve.visualize() #--> aktivieren um die Visualisierung in Fenster zu sehen
+        # self.best_solution_improve.visualize() #--> aktivieren um die Visualisierung in Fenster zu sehen
         # Gebe Packplan der besten Lösung aus
         # print("Packplan der besten Lösung")
         # print(self.best_solution_improve.containers)

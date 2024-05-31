@@ -157,6 +157,7 @@ class Pack_Algorithm:
     simulation = Grid_Search() # Erzeuge eine Instanz der Gittersuche
     simulation.run_grid_search() # Führe Simulationen mit den in der Gittersuche definierten Parametern durch
 
+    print("Simulation done")
     # order name
     # order = 'Beispiel_1'
 
@@ -233,28 +234,6 @@ class Pack_Algorithm:
 
         return c_wall_x, c_wall_y, c_wall_z, container
 
-    def generate_output():
-
-        # read packplan
-        packplan, rotation_index = Pack_Algorithm.read_csv_packplan()
-        
-        # read container from csv and calculate wall thickness of the container
-        c_wall_x, c_wall_y, c_wall_z, container = Pack_Algorithm.read_csv_container()
-
-        # choose cylinder and tcp
-        # index_msgs, tcps_cylinder = Pack_Algorithm.choose_cylinder(packplan)
-        packplan = Pack_Algorithm.cal_place_coordinates()
-        packplan = Pack_Algorithm.add_label_odtf()
-        packplan = Pack_Algorithm.clear_packplan()
-
-        print("\nPackplan:")
-        print(packplan)
-
-        print("\nContainer:")
-        print(container)
-    
-        print("\n### Finished ###\n")
-        return packplan, container
         
 
     # calculate the coordinates of the place pose (center of the package + Z-direction)
@@ -304,13 +283,40 @@ class Pack_Algorithm:
 
         return packplan
 
-if __name__ == '__main__':
-    final_packplan, final_container = Pack_Algorithm.generate_output()
-    
-    print("\nPackplan:")
-    print(final_packplan)
+    def generate_output():
+        print("\n### Start Pack Algorithm ###\n")
+        # read packplan
+        packplan, rotation_index = Pack_Algorithm.read_csv_packplan()
 
-    print("\nContainer:")
-    print(final_container)
+        print("Read csv packplan done")
+        
+        # read container from csv and calculate wall thickness of the container
+        c_wall_x, c_wall_y, c_wall_z, container = Pack_Algorithm.read_csv_container()
+
+        print("Read csv container done")
+
+        # index_msgs, tcps_cylinder = Pack_Algorithm.choose_cylinder(packplan)
+        packplan = Pack_Algorithm.cal_place_coordinates()
+        packplan = Pack_Algorithm.add_label_odtf()
+        packplan = Pack_Algorithm.clear_packplan()
+
+        print("\nPackplan:")
+        print(packplan)
+
+        print("\nContainer:")
+        print(container)
     
-    print("\n### Finished ###\n")
+        print("\n### Finished ###\n")
+        return packplan, container
+    
+
+# if __name__ == '__main__':
+#     final_packplan, final_container = Pack_Algorithm.generate_output()
+    
+    # print("\nPackplan:")
+    # print(final_packplan)
+
+    # print("\nContainer:")
+    # print(final_container)
+    
+    # print("\n### Finished ###\n")
