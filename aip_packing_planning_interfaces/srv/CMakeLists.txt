@@ -34,6 +34,13 @@ set(DEPENDENCIES
   diagnostic_msgs
   )
 
+# Generate custom messages
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/Packages.msg"
+  "msg/PackageSequence.msg"
+  "srv/PackSequence.srv"
+  DEPENDENCIES ${DEPENDENCIES}
+
 #file (GLOB MSGS msg/*.msg)
 #file (GLOB ACTIONS action/*.action)
 #file (GLOB SERVICES srv/*.srv)
