@@ -11,24 +11,6 @@
   <depend>ament_flake8</depend>
   <depend>ament_pep257</depend>
   <depend>python3-pytest</depend>
-  <depend>open3d</depend>
-  <depend>collections</depend>
-  <depend>numpy</depend>
-  <depend>random</depend>
-  <depend>time</depend>
-  <depend>pandas</depend>
-  <depend>itertools</depend>
-  <depend>math</depend>
-  <depend>copy</depend>
-  <depend>matplotlib.pyplot</depend>
-  <depend>IPython.core.display</depend>
-  <depend>functools</depend>
-  <depend>operator</depend>
-  <depend>csv</depend>
-  <depend>datetime</depend>
-  <depend>os</depend>
-
-
 
   <export>
     <build_type>ament_python</build_type>

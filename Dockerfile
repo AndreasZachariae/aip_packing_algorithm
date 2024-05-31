@@ -62,6 +62,7 @@ RUN mkdir -p /home/$USER/ros2_ws/src
 WORKDIR /home/$USER/ros2_ws/src
 
 COPY aip_packing_planning_interfaces ./aip_packing_planning_interfaces
+COPY pkg_pack_node ./pkg_pack_node
 
 USER $USER 
 
