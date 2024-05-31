@@ -39,24 +39,13 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Packages.msg"
   "msg/PackageSequence.msg"
   "srv/PackSequence.srv"
-  DEPENDENCIES ${DEPENDENCIES}
+  DEPENDENCIES ${DEPENDENCIES})
 
 #file (GLOB MSGS msg/*.msg)
 #file (GLOB ACTIONS action/*.action)
 #file (GLOB SERVICES srv/*.srv)
 
-rosidl_generate_interfaces(${PROJECT_NAME}
 
-
-# Beispiel
-  # "srv/UserDialog.srv"
-
-
-
-  #${MSGS}
-  #${ACTIONS}
-  #${SERVICES}
-  DEPENDENCIES ${DEPENDENCIES})
 
 ament_export_dependencies(rosidl_default_runtime ${DEPENDENCIES})
 ament_package()
