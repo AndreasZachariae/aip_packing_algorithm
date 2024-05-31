@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(aip_packing_planning_interfaces)
+project(pkg_pack_node)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -33,13 +33,6 @@ set(DEPENDENCIES
   nav_msgs
   diagnostic_msgs
   )
-
-# Generate custom messages
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/Package.msg"
-  "msg/PackageSequence.msg"
-  "srv/PackSequence.srv"
-  DEPENDENCIES ${DEPENDENCIES})
 
 #file (GLOB MSGS msg/*.msg)
 #file (GLOB ACTIONS action/*.action)

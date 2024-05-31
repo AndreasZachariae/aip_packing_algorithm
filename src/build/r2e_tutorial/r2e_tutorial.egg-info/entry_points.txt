@@ -1,4 +1,0 @@
-[console_scripts]
-example = r2e_tutorial.example:main
-house = r2e_tutorial.house:main
-

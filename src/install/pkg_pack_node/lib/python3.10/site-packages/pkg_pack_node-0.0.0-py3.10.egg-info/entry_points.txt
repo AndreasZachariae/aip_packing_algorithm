@@ -1,3 +1,0 @@
-[console_scripts]
-pack_node = pkg_pack_node.pack_node:main
-
