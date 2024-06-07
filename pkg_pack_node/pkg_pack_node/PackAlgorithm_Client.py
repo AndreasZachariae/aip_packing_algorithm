@@ -5,15 +5,18 @@ from geometry_msgs.msg import Vector3
 from geometry_msgs.msg import Point
 from aip_packing_planning_interfaces.srv import PackItems
 from Classes.items_transfer import items_transfer
+from aip_packing_planning_interfaces.srv import PackSequence
 
 
 class PackingPlanningClient(Node):
 
     def __init__(self):
-        super().__init__('packing_planning_client')
-        self.cli = self.create_client(PackItems, 'items_to_pack')
+        super().__init__('pack_planning_client')
+        # zu PackSequence ändern
+        self.cli = self.create_client(PackItems, 'pack_planning')
         while not self.cli.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('Service not available, waiting again...')
+        # zu PackSequence ändern
         self.req = PackItems.Request()
         print("Init finished")
 
@@ -37,7 +40,7 @@ def main(args=None):
             except Exception as e:
                 client.get_logger().info('Service call failed %r' % (e,))
             else:
-                client.get_logger().info('Result: %r' % (response.itemstopack))
+                client.get_logger().info('Result: %r' % (response.objects_to_pick))
             break
 
     client.destroy_node()
@@ -46,7 +49,7 @@ def main(args=None):
     
     #### Processing the response ####
     items = []
-    item_data = response.itemstopack
+    item_data = response.objects_to_pick
     items = item_data.split(",")
 
     # Setze Request
