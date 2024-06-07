@@ -4,6 +4,8 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Vector3
 from geometry_msgs.msg import Point
 from aip_packing_planning_interfaces.srv import PackItems
+from Classes.items_transfer import items_transfer
+
 
 class PackingPlanningClient(Node):
 
@@ -24,7 +26,7 @@ def main(args=None):
     client = PackingPlanningClient()
     
     client.send_request()
-    print("For der while")
+    
     while rclpy.ok():
         rclpy.spin_once(client)
         print("Requesting...")
@@ -40,10 +42,21 @@ def main(args=None):
 
     client.destroy_node()
     rclpy.shutdown()
-    ####
-    packplan = response.itemstopack
-    ###
-    print("Packplan",packplan)
+    
+    
+    #### Processing the response ####
+    items = []
+    item_data = response.itemstopack
+    items = item_data.split(",")
+    print(items)
+
+    # Setze Request
+    items_transfer.set_items(items)
+    print("\nItems set")
+    # Starte Packplanung
+    from Pack_Algorithm import Pack_Algorithm
+    # Pack_Algorithm()
+    
 
 if __name__ == '__main__':
     main()

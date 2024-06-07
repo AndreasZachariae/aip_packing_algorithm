@@ -12,7 +12,8 @@ class PackItemsService(Node):
     def pack_items_callback(self, request, response):
         #     items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete"]
 
-        response.itemstopack = 'Item1, Item2, Item3'
+        # response.itemstopack = 'Item1, Item2, Item3'
+        response.itemstopack = 'Box_Gluehlampe,Box_Wischblatt,Keilriemen_gross,Box_Bremsbacke,Keilriemen_klein,Tuete'
         return response
 
 def main(args=None):
