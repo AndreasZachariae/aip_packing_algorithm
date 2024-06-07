@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from aip_packing_planning_interfaces.srv import PackSequence
 from Classes.items_transfer import items_transfer
+from Classes.Packplan import Packplan
 
 
 class PackItemsService(Node):
@@ -26,6 +27,9 @@ class PackItemsService(Node):
         from Pack_Algorithm import Pack_Algorithm
         # Pack_Algorithm()
     
+        result = Packplan.get_packplan()
+        
+
         return packing_request
 
 def main(args=None):
@@ -34,7 +38,7 @@ def main(args=None):
 
     packing_request = PackSequence.Request()
     packing_request.objects_to_pick = 'Box_Gluehlampe,Box_Wischblatt,Keilriemen_gross,Box_Bremsbacke,Keilriemen_klein,Tuete'
-# 'Box_Gluehlampe,Box_Wischblatt,Keilriemen_gross,Box_Bremsbacke,Keilriemen_klein,Tuete'
+
     future = node.packing_client.call_async(packing_request)
 
     rclpy.spin(node)
