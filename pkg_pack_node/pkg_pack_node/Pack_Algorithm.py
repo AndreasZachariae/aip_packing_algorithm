@@ -106,6 +106,7 @@ from cython_files.cython_part import Calculate_Overlapping_Areas
 # 3. Anwendung und Ergebnisausgabe
 
 from Classes.order_data_transfer import order_data_transfer
+from Classes.request_transfer import request_transfer
 
 
 
@@ -132,9 +133,11 @@ class Pack_Algorithm:
 
     material_master = pd.DataFrame(material_master)
 
-    order = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete", "Keilriemen_gross","Box_Gluehlampe", "Box_Gluehlampe"]
-    print("Order: ", order)
+    # order = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete", "Keilriemen_gross","Box_Gluehlampe", "Box_Gluehlampe"]
+    # print("Order: ", order)
     
+    order = request_transfer.get_request()
+    print("Order:\n", order)
     order_data = []
     
     # Filtere Materialstamm nach den Artikeln der Bestellung
@@ -158,8 +161,6 @@ class Pack_Algorithm:
     simulation.run_grid_search() # Führe Simulationen mit den in der Gittersuche definierten Parametern durch
 
     print("Simulation done")
-    # order name
-    # order = 'Beispiel_1'
 
     def read_csv_packplan():
         # read packplan from csv
@@ -308,6 +309,8 @@ class Pack_Algorithm:
     
         print("\n### Finished ###\n")
         return packplan, container
+    
+    final_packplan, final_container = generate_output()
     
 
 # if __name__ == '__main__':

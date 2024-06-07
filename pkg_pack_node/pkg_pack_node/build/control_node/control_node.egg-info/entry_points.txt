@@ -1,0 +1,2 @@
+[console_scripts]
+publisher_gripper_controller = control_node.publisher_gripper_controller:main
