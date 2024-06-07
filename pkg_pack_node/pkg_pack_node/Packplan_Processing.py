@@ -3,13 +3,11 @@ from Classes.container_transfer import container_transfer
 from Classes.order_data_transfer import order_data_transfer
 import pandas as pd
 
-
 class Packplan_Processing:
 
     # Intitialiiere Klasse
     def __init__(self):
         pass
-
 
     def read_csv_packplan():
         # read packplan from csv
@@ -59,15 +57,17 @@ class Packplan_Processing:
     
 
     def read_csv_container():
+        
         # read which container is used
         column_names = ['width', 'height', 'length']
-        # container = pd.read_csv('src/pick_package/Packalgorithmus/Simulationen/' + order + ' BI01 Simulation Container.csv', names = column_names)
+        
         # convert mm into m
         container = pd.DataFrame(container_transfer.get_container(), columns=column_names)
         container.width = container.width / 1000
         container.height = container.height / 1000
         container.length = container.length / 1000
-        print("Container:\n",container)
+        
+        # print("Container:\n",container)
 
         if container.width[0] == 0.585:
             #container special
@@ -85,8 +85,6 @@ class Packplan_Processing:
         c_wall_z = (container_outside_z - container_inside_z)
 
         return c_wall_x, c_wall_y, c_wall_z, container
-
-        
 
     # calculate the coordinates of the place pose (center of the package + Z-direction)
     def cal_place_coordinates():
@@ -137,6 +135,7 @@ class Packplan_Processing:
 
 
     def generate_output():
+        
         print("\nStart Pack Processing\n")
         
         # read packplan
