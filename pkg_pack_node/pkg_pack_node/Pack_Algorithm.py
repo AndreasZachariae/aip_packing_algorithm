@@ -1,120 +1,7 @@
-""" 
-3D Packalgorithmus
-
-Version 2.0
-
-Version 1.0
-Autor: Dominik Lipfert
-Studiengang:Wirtschaftsingenierwesen Master
-basierend auf dem Packalgorithmus von Reiplinger (2021)
-
-Version 1.1 Änderungen Luisa Schlenker
-
-Version 2.0 Umwandlung in Pack_Algorithm.py, Implementierung mit Hardware
-"""
-
-"""
-Gliederung
-
-0. Klassen des Packalgorithmus
- - Class: Article
- - Class: Container
- - Class: Solution (=Individuum)
- - Class: Genetic Algorithm
- - Class: Packing Algorithm
- - Class: Grid Search
-1. Datenvorverarbeitung 
-2. Restriktionen in Cython
- - Platzierungsbedingungen
- - Bedingung für Traglast einzelner Packstücke
-3. Anwendung & Ergebnisausgabe
-"""
-
-import collections
-import numpy as np
-import open3d as o3d
-from IPython.core.display import display, HTML
-import random
-
 import pandas as pd
-import itertools
-import time
-import math
-import copy
-import matplotlib.pyplot as plt
-from functools import reduce
-from operator import add
-import csv
-from datetime import datetime
-from IPython.core.display import display, HTML
-
-import copy
-import numpy as np
-import time
-import pandas as pd
-import os
-from Classes.packplan import Packplan
-from Classes.container_transfer import container_transfer
-
-#%load_ext Cython
-
-display(HTML("<style>.container { width:100% !important; }</style>"))
-
-# 0. Klassen des Packalgorithmus
-# Class: Article
-from Classes.article import Article
-
-# Class: Container
-from Classes.container import Container
-# Class: Solution (=Individual)
-from Classes.solution import Solution
-
-# Class: Population
-from Classes.population import Population
-
-# Class: Genetic Algorithm
-import itertools
-from Classes.genetic_algorithm import Genetic_Algorithm
-
-
-
-
-# Class: Packing Algorithm
-from Classes.packing_algorithm import Packing_Algorithm
-from Classes.packplan import Packplan
-from Classes.container_transfer import container_transfer
-
-
-# Class: Grid Search
-#import multiprocessing as mp
-# Klasse, in der verschiedene Ausprägungen der Parameter für den evolutionären Algorithmus definiert werden können. 
-
 from Classes.grid_search import Grid_Search
-
-# 1. Datenvorverarbeitung
- 
-
-# 2. Restriktionen in Cython
-
-# 2.1 Platzierungsbedingung
-
-
-from cython_files.cython_part import Check_Placement_Modified_Stacking
-from cython_files.cython_part import Check_Placement
-from cython_files.cython_part import Calculate_Overlapping_Areas
-
-# 3. Anwendung und Ergebnisausgabe
-
 from Classes.order_data_transfer import order_data_transfer
 from Classes.items_transfer import items_transfer
-
-# # Ausführen des Algorithmus mit Line-by-Line-Profiler 
-# %load_ext line_profiler
-
-# # Erzeuge eine Instanz des Algorithmus mit den gewünschten Paramtern (Dateiname der Bestelldaten, Populationsgröße, Variante der Paarungsselektion, Variante des Crossover, Anzahl zu übernehmende beste Individuen in Folgepopulation)
-# packing_algorithm = Packing_Algorithm("06_Datensatz_50-75 Artikel_leicht_heterogen2", 10, 10, 0, [0], 1)
-# # Ruf Algorithmus mit Profiler auf und definiere für welche Funktion die Zeit gemessen werden soll
-# %lprun -f Container.run_Wall_Building packing_algorithm.run_algorithm()
 
 class Pack_Algorithm:
     # Materialstamm
@@ -151,7 +38,7 @@ class Pack_Algorithm:
                 row["Orientierungen"]
             ))
 
-    print("Order data:\n", order_data)
+    # print("Order data:\n", order_data)
     order_data_transfer.set_order_data(order_data)
 
     # Starte Simulation mit verschiedenen Parametern

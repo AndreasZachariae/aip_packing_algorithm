@@ -186,11 +186,11 @@ class Packing_Algorithm:
         print("\nDie Rechenzeit liegt bei " + str(round(self.time_needed, 2)) + " Sekunden\n")
 
         # Gebe die Ergebnisse der finalen Lösung mit der niedrigesten Volumenauslastung aus
-        print("Ergebnisse der finalen Lösung:")
-        self.print_solution_propertiers(self.best_solution_improve)
+        # print("Ergebnisse der finalen Lösung:")
+        # self.print_solution_propertiers(self.best_solution_improve)
 
-        print("\nRelative Verbesserung zum Ergebnis der Basisheuristik:")
-        print(str((self.best_solution_improve.usage_average/self.best_solution_base.usage_average - 1) * 100) + "%\n")
+        # print("\nRelative Verbesserung zum Ergebnis der Basisheuristik:")
+        # print(str((self.best_solution_improve.usage_average/self.best_solution_base.usage_average - 1) * 100) + "%\n")
         
         # Visualisere gepackte Container der besten Lösung
         self.best_solution_improve.print_packplan()

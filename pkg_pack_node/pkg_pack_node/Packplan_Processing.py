@@ -137,17 +137,13 @@ class Packplan_Processing:
 
 
     def generate_output():
-        print("\n### Start Pack Algorithm ###\n")
+        print("\nStart Pack Processing\n")
         
         # read packplan
         packplan, rotation_index = Packplan_Processing.read_csv_packplan()
-
-        print("Read csv packplan done")
         
         # read container from csv and calculate wall thickness of the container
         c_wall_x, c_wall_y, c_wall_z, container = Packplan_Processing.read_csv_container()
-
-        print("Read csv container done")
 
         # index_msgs, tcps_cylinder = Pack_Algorithm.choose_cylinder(packplan)
         packplan = Packplan_Processing.cal_place_coordinates()
@@ -164,15 +160,3 @@ class Packplan_Processing:
         return packplan, container
     
 final_packplan, final_container = Packplan_Processing.generate_output()
-    
-
-# if __name__ == '__main__':
-#     final_packplan, final_container = Pack_Algorithm.generate_output()
-    
-    # print("\nPackplan:")
-    # print(final_packplan)
-
-    # print("\nContainer:")
-    # print(final_container)
-    
-    # print("\n### Finished ###\n")

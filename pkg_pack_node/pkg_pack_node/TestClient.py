@@ -48,11 +48,10 @@ def main(args=None):
     items = []
     item_data = response.itemstopack
     items = item_data.split(",")
-    print(items)
 
     # Setze Request
     items_transfer.set_items(items)
-    print("\nItems set")
+
     # Starte Packplanung
     from Pack_Algorithm import Pack_Algorithm
     # Pack_Algorithm()
