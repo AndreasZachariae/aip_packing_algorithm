@@ -14,6 +14,7 @@ class PackItemsService(Node):
 
         self.get_logger().info('Service server is ready.')
 
+
     def pack_items_callback(self, packing_request, response):
         
         items = []
@@ -28,9 +29,14 @@ class PackItemsService(Node):
         # Pack_Algorithm()
     
         result = Packplan.get_packplan()
+
+        packing_plan = PackSequence.Response()
         
 
-        return packing_request
+        # packing_plan.package.packages.class_name = 
+        # [[class_name1, class_name2], [[length1, width1, height1], [length2, width2, height2]], [weight1, weight2]]...
+
+        return packing_plan
 
 def main(args=None):
     rclpy.init(args=args)
