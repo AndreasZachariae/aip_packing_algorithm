@@ -10,7 +10,7 @@ class PackItemsService(Node):
     def __init__(self):
         super().__init__('pack_items_service')
         self.srv = self.create_service(PackSequence, 'pack_planning', self.pack_items_callback)
-        self.packing_client = self.create_client(PackSequence, 'pack_planning', )
+        # self.packing_client = self.create_client(PackSequence, 'pack_planning')
 
         self.get_logger().info('Service server is ready.')
 
@@ -51,9 +51,10 @@ def main(args=None):
     node = PackItemsService()
 
     packing_request = PackSequence.Request()
-    packing_request.objects_to_pick = "Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete"
+    packing_request.objects_to_pick = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross"] #, "Box_Bremsbacke", "Keilriemen_klein", "Tuete"
+    # packing_request.objects_to_pick = ["Box_Gluehlampe, Box_Wischblatt, Keilriemen_gross"]
 
-    future = node.packing_client.call_async(packing_request)
+    # future = node.packing_client.call_async(packing_request)
 
     rclpy.spin(node)
     rclpy.shutdown()
