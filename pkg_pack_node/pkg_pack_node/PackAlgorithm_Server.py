@@ -15,7 +15,7 @@ class PackItemsService(Node):
         self.get_logger().info('Service server is ready.')
 
 
-    def pack_items_callback(self, packing_request, response):
+    def pack_items_callback(self, packing_request, packing_plan):
         
         items = []
         items = packing_request.objects_to_pick
@@ -29,11 +29,19 @@ class PackItemsService(Node):
         # Pack_Algorithm()
     
         result = Packplan.get_packplan()
-
+        
+        # Setze Response
         packing_plan = PackSequence.Response()
         
+        class_name = result['label_odtf'].tolist()
+        dimensions = result[['length', 'width', 'height']].values.tolist()
+        weight = result['weight'].tolist()
+        rotation_index = result['rotation_index'].tolist()
+        place_coordinates = result[['x_pack', 'y_pack', 'z_pack']].values.tolist()
 
-        # packing_plan.package.packages.class_name = 
+        packing_plan = [class_name, dimensions, weight, rotation_index, place_coordinates]
+
+        print(packing_plan)
         # [[class_name1, class_name2], [[length1, width1, height1], [length2, width2, height2]], [weight1, weight2]]...
 
         return packing_plan
