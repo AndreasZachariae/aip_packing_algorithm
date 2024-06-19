@@ -30,19 +30,19 @@ class PackItemsService(Node):
     
         result = Packplan.get_packplan()
         
-        # Setze Response
         packing_plan = PackSequence.Response()
         
+        # Separiere den Packplan
         class_name = result['label_odtf'].tolist()
         dimensions = result[['length', 'width', 'height']].values.tolist()
         weight = result['weight'].tolist()
         rotation_index = result['rotation_index'].tolist()
         place_coordinates = result[['x_pack', 'y_pack', 'z_pack']].values.tolist()
 
+        # Erstellen des Response
         packing_plan = [class_name, dimensions, weight, rotation_index, place_coordinates]
 
-        print(packing_plan)
-        # [[class_name1, class_name2], [[length1, width1, height1], [length2, width2, height2]], [weight1, weight2]]...
+        print("Response:\n", packing_plan)
 
         return packing_plan
 
@@ -60,7 +60,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
-
-##
-#ros2 service call items_to_pack aip_packing_planning_interfaces/srv/PackItems '{}'
