@@ -1,0 +1,42 @@
+[0.069s] Invoking command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/iras_srvs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/Old/iras_srvs -DCMAKE_INSTALL_PREFIX=/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/iras_srvs
+[0.376s] -- The C compiler identification is GNU 11.4.0
+[0.376s] -- The CXX compiler identification is GNU 11.4.0
+[0.376s] -- Detecting C compiler ABI info
+[0.376s] -- Detecting C compiler ABI info - done
+[0.377s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.377s] -- Detecting C compile features
+[0.377s] -- Detecting C compile features - done
+[0.377s] -- Detecting CXX compiler ABI info
+[0.450s] -- Detecting CXX compiler ABI info - done
+[0.464s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.465s] -- Detecting CXX compile features
+[0.466s] -- Detecting CXX compile features - done
+[0.470s] -- Found ament_cmake: 1.3.9 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.302s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.470s] -- Found geometry_msgs: 4.2.3 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.532s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.546s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.579s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.615s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.654s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.886s] -- Found shape_msgs: 4.2.3 (/opt/ros/humble/share/shape_msgs/cmake)
+[2.014s] [31mCMake Error at CMakeLists.txt:16 (find_package):
+[2.014s]   By not providing "Findmoveit_msgs.cmake" in CMAKE_MODULE_PATH this project
+[2.014s]   has asked CMake to find a package configuration file provided by
+[2.014s]   "moveit_msgs", but CMake did not find one.
+[2.016s] 
+[2.016s]   Could not find a package configuration file provided by "moveit_msgs" with
+[2.016s]   any of the following names:
+[2.016s] 
+[2.017s]     moveit_msgsConfig.cmake
+[2.017s]     moveit_msgs-config.cmake
+[2.017s] 
+[2.017s]   Add the installation prefix of "moveit_msgs" to CMAKE_PREFIX_PATH or set
+[2.018s]   "moveit_msgs_DIR" to a directory containing one of the above files.  If
+[2.018s]   "moveit_msgs" provides a separate development package or SDK, be sure it
+[2.019s]   has been installed.
+[2.019s] 
+[2.019s] [0m
+[2.020s] -- Configuring incomplete, errors occurred!
+[2.020s] See also "/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/iras_srvs/CMakeFiles/CMakeOutput.log".
+[2.039s] Invoked command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/iras_srvs' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/Old/iras_srvs -DCMAKE_INSTALL_PREFIX=/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/iras_srvs
