@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'pack_node = pkg_pack_node.pack_node:main'
+            'pack_node = pkg_pack_node.pack_node:main',
+            'pack_server = pkg_pack_node.PackAlgorithm_Server:main'
         ],
     },
 )
