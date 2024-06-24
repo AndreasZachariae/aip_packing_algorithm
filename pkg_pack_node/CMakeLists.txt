@@ -24,6 +24,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(diagnostic_msgs REQUIRED)
+find_package(aip_packing_planning_interfaces REQUIRED)
 
 set(DEPENDENCIES
   builtin_interfaces
@@ -32,6 +33,7 @@ set(DEPENDENCIES
   geometry_msgs
   nav_msgs
   diagnostic_msgs
+  aip_packing_planning_interfaces
   )
 
 #file (GLOB MSGS msg/*.msg)
