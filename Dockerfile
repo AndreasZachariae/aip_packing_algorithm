@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/* 
 
 RUN python3 -m pip install -U pip setuptools
-
+RUN pip install --upgrade setuptools packaging
 RUN pip install open3d Cython
 
 ##############################################################################
@@ -72,6 +72,7 @@ USER $USER
 WORKDIR /home/$USER/ros2_ws
 RUN rosdep update --rosdistro $ROS_DISTRO
 RUN rosdep install --from-paths src --ignore-src -y
+RUN echo "source /home/$USER/ros2_ws/install/setup.bash" >> /home/$USER/.bashrc
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --symlink-install \
     --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 RUN echo "source /home/$USER/ros2_ws/install/setup.bash" >> /home/$USER/.bashrc
