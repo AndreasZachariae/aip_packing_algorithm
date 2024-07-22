@@ -17,14 +17,22 @@ class PackItemsService(Node):
         # self.packing_client = self.create_client(PackSequence, 'pack_planning')
 
         self.get_logger().info('Service server is ready.')
+        print("Service Server is running...")
+
 
 
     def pack_items_callback(self, request, response):
-        
+
         items = []
-        items = request.objects_to_pick
-        # items = items.split(",")
+        
+        # Aktiviere folgende Zeile für Testzwecke
+        items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross"] #, "Box_Bremsbacke", "Keilriemen_klein", "Tuete"
+        
+        # Aktiviere folgende Zeile für normale Funktionalität
+        # items = request.objects_to_pick
+
         print("Items: ", items)
+
         # Setze Request
         items_transfer.set_items(items)
 
@@ -67,12 +75,6 @@ class PackItemsService(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = PackItemsService()
-
-    #packing_request = PackSequence.Request()
-    #packing_request.objects_to_pick = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross"] #, "Box_Bremsbacke", "Keilriemen_klein", "Tuete"
-    # packing_request.objects_to_pick = ["Box_Gluehlampe, Box_Wischblatt, Keilriemen_gross"]
-
-    # future = node.packing_client.call_async(packing_request)
 
     rclpy.spin(node)
     rclpy.shutdown()
