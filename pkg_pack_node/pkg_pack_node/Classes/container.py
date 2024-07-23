@@ -10,6 +10,7 @@ import numpy as np
 import random
 from Classes.packplan import Packplan
 from Classes.container_transfer import container_transfer
+from Classes.global_packplan_transfer import Packplan_temp
 
 
 box = collections.namedtuple('box', 'width height length')
@@ -676,8 +677,8 @@ class Container:
 
 
     def Modified_Stack_Building (self, article_packed):
-        global packplan
-        packplan = []
+        global global_packplan
+        global_packplan = []
         stack_indices = [] # Liste zur Speicherung der Indizes der Packstücke, die als Basis für den Stapel fungieren
 
         # Initialisiere Liste, welche durch die width_extension mit Tupeln befüllt wird, die alle Packstücke um die die Stapelfläche erweitert wurde enthalten. Tupel: (Packstück ID, Packstück Breite, Packstück Länge, Packstück Breitenkoordinate, Packstück Längenkoordinate)
@@ -766,8 +767,10 @@ class Container:
 
         for artloc in self.article_locations:
             packplan_package = [artloc.width, artloc.height, artloc.length, artloc.x, artloc.y, artloc.z, artloc.is_stack, artloc.package_ID, artloc.package_sequence_nr, artloc.package_weight]
-            packplan.append(packplan_package)
-   
+            global_packplan.append(packplan_package)
+    
+        Packplan_temp.set_packplan_temp(global_packplan)
+
     ''' Ende Funktionen des Single Knapsack Algortihmus'''
 
 
@@ -801,8 +804,9 @@ class Container:
         results_packplan = pd.DataFrame(pckpln)
         
         # Speichere den Packplan global ab
-        Packplan.set_packplan(packplan)
-        
+        Packplan.set_packplan(pckpln)
+        # Packplan.set_packplan(packplan)
+
         pckpln = []
         # results_packplan.to_csv(path_or_buf=file_path_packplan, header=False, index=False)
 

@@ -158,4 +158,5 @@ class Packplan_Processing:
         print("\n### Finished ###\n")
         return packplan, container
     
-final_packplan, final_container = Packplan_Processing.generate_output()
+# if __name__ == '__main__':
+#     final_packplan, final_container = Packplan_Processing.generate_output()

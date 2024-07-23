@@ -18,10 +18,12 @@ class Pack_Algorithm:
 
     material_master = pd.DataFrame(material_master)
 
-    # order = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete", "Keilriemen_gross","Box_Gluehlampe", "Box_Gluehlampe"]
-    # print("Order: ", order)
+    # Für Simulation ohne ROS die folgende Zeile aktivieren
+    order = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete"]
     
-    order = items_transfer.get_items()
+    # Für Simulation mit ROS die folgende Zeile deaktivieren
+    # order = items_transfer.get_items()
+    
     print("Order:\n", order)
     order_data = []
     
@@ -48,5 +50,8 @@ class Pack_Algorithm:
     print("Simulation done")
 
     # Führe Packplan_Processing aus
+
+# Für Simulation ohne ROS folgende Zeile aktivieren
+if __name__ == '__main__':
     from Packplan_Processing import Packplan_Processing
-    # Packplan_Processing()
+    final_packplan, final_container = Packplan_Processing.generate_output()

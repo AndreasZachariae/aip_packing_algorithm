@@ -2,6 +2,7 @@ from datetime import datetime
 from Classes.packing_algorithm import Packing_Algorithm
 from Classes.container import Container
 from Classes.packplan import Packplan
+from Classes.global_packplan_transfer import Packplan_temp
 
 class Grid_Search:
     
@@ -52,9 +53,9 @@ class Grid_Search:
                         # Füge die Listen mit den Simulationsergebnissen den Listen mit den Ergebnissen aller Simulationen hinzu
                         self.list_volume_usage_values.append(best_volume_usage_values)
                         self.list_index_best_solution.append(index_best_solution)
-                        temp_packplan = Packplan.get_packplan()
-                        for i in range(len(temp_packplan)):
-                            self.list_packplan.append((temp_packplan[i][0], temp_packplan[i][1], temp_packplan[i][2], temp_packplan[i][3], temp_packplan[i][4], temp_packplan[i][5], temp_packplan[i][6], temp_packplan[i][7], temp_packplan[i][8], temp_packplan[i][9]))
+                        global_packplan = Packplan_temp.get_packplan_temp()
+                        for i in range(len(global_packplan)):
+                            self.list_packplan.append((global_packplan[i][0], global_packplan[i][1], global_packplan[i][2], global_packplan[i][3], global_packplan[i][4], global_packplan[i][5], global_packplan[i][6], global_packplan[i][7], global_packplan[i][8], global_packplan[i][9]))
 
         
             # Speichere die Ergebnisse der Simulation in eine CSV Datei

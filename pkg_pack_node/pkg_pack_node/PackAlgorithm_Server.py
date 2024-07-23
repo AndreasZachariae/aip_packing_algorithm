@@ -26,7 +26,8 @@ class PackItemsService(Node):
         items = []
         
         # Aktiviere folgende Zeile für Testzwecke
-        items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross"] #, "Box_Bremsbacke", "Keilriemen_klein", "Tuete"
+        # items = ["Box_Gluehlampe","Box_Bremsbacke", "Box_Wischblatt", "Keilriemen_gross","Keilriemen_klein","Tuete"]#, "Tuete", "Box_Bremsbacke",]
+        items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete"]#, "Tuete", "Box_Bremsbacke",]
         
         # Aktiviere folgende Zeile für normale Funktionalität
         # items = request.objects_to_pick
