@@ -95,7 +95,7 @@ class Packplan_Processing:
         for i in range(len(packplan)):
             x.append(packplan.x[i] + packplan.length[i] / 2)
             y.append(packplan.y[i] + packplan.width[i] / 2)
-            z.append(packplan.z[i] + packplan.height[i] / 2)
+            z.append(packplan.z[i] + packplan.height[i])
 
         # insert the x, y, z coordinates as columns into the packplan list
         packplan.insert(13, 'x_pack', x)
@@ -110,10 +110,17 @@ class Packplan_Processing:
     def add_label_odtf():
         packplan = pd.DataFrame(Packplan.get_packplan())
         order_data = order_data_transfer.get_order_data()
-
+        
         label_odtf = []
+
+        # Subtrahiere 1 von package_ID, damit Liste bei 0 anfängt
+        packplan["package_ID"] = packplan["package_ID"] - 1
+
+        # Füge die Label ODTF entsprechend der package_ID ein
         for i in range(len(packplan)):
-            label_odtf.append(order_data[i][0])
+            for j in range(len(order_data)):
+                if packplan["package_ID"][i] == j:
+                    label_odtf.append(order_data[j][0])
 
         packplan.insert(16, 'label_odtf', label_odtf)
 
