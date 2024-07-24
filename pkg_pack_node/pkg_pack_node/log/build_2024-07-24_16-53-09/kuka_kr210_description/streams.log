@@ -1,0 +1,43 @@
+[0.196s] Invoking command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr210_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake --build /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr210_description -- -j16 -l16
+[0.260s] Invoked command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr210_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake --build /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr210_description -- -j16 -l16
+[0.307s] Invoking command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr210_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake --install /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr210_description
+[0.377s] -- Install configuration: ""
+[0.377s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//urdf
+[0.378s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//urdf/robot.urdf.xacro
+[0.378s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//urdf/kr210l150_macro.xacro
+[0.378s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes
+[0.378s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150
+[0.379s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/collision
+[0.380s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/collision/link_2.stl
+[0.381s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/collision/link_6.stl
+[0.381s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/collision/link_5.stl
+[0.381s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/collision/link_4.stl
+[0.382s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/collision/base_link.stl
+[0.382s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/collision/link_1.stl
+[0.382s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/collision/link_3.stl
+[0.382s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/visual
+[0.382s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/visual/link_5.dae
+[0.382s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/visual/link_4.dae
+[0.409s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/visual/link_3.dae
+[0.424s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/visual/base_link.dae
+[0.428s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/visual/link_2.dae
+[0.432s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/visual/link_6.dae
+[0.434s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//meshes/kr210l150/visual/link_1.dae
+[0.436s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//config
+[0.436s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description//config/robot.srdf
+[0.436s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/ament_index/resource_index/package_run_dependencies/kuka_kr210_description
+[0.437s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/ament_index/resource_index/parent_prefix_path/kuka_kr210_description
+[0.437s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/environment/ament_prefix_path.sh
+[0.437s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/environment/ament_prefix_path.dsv
+[0.437s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/environment/path.sh
+[0.437s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/environment/path.dsv
+[0.437s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/local_setup.bash
+[0.437s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/local_setup.sh
+[0.437s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/local_setup.zsh
+[0.438s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/local_setup.dsv
+[0.438s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/package.dsv
+[0.438s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/ament_index/resource_index/packages/kuka_kr210_description
+[0.438s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/cmake/kuka_kr210_descriptionConfig.cmake
+[0.438s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/cmake/kuka_kr210_descriptionConfig-version.cmake
+[0.438s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr210_description/share/kuka_kr210_description/package.xml
+[0.483s] Invoked command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr210_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake --install /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr210_description

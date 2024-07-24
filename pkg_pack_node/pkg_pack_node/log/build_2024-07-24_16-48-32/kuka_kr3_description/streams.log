@@ -1,0 +1,22 @@
+[0.194s] Invoking command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr3_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/Old/kuka_eki/kuka_kr3_description -DCMAKE_INSTALL_PREFIX=/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr3_description
+[0.499s] -- The C compiler identification is GNU 11.4.0
+[0.500s] -- The CXX compiler identification is GNU 11.4.0
+[0.500s] -- Detecting C compiler ABI info
+[0.545s] -- Detecting C compiler ABI info - done
+[0.557s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.558s] -- Detecting C compile features
+[0.558s] -- Detecting C compile features - done
+[0.563s] -- Detecting CXX compiler ABI info
+[0.668s] -- Detecting CXX compiler ABI info - done
+[0.679s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.679s] -- Detecting CXX compile features
+[0.680s] -- Detecting CXX compile features - done
+[0.685s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.029s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.120s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.195s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.202s] -- Added test 'lint_cmake' to check CMake code style
+[1.206s] -- Added test 'xmllint' to check XML markup files
+[1.207s] -- Configuring done
+[1.211s] -- Generating done
+[1.212s] -- Build files have been written to: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr3_description

@@ -26,3 +26,11 @@ aktiviert werden. Hier können Objekte eingetragen werden, welche simuliert werd
 items = request.objects_to_pick
 ```
 muss für die Simulation deaktiviert werden.
+
+
+
+
+
+
+ros2 service call solution_image_transfer aip_packing_planning_interfaces/srv/SolutionImage '{}'
+python3 Solution_image_transfer_server.py 

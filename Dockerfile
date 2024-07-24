@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 RUN python3 -m pip install -U pip setuptools
 RUN pip install --upgrade setuptools packaging
-RUN pip install open3d Cython
+RUN pip install open3d Cython opencv-python cvbridge3 cv_bridge
 
 ##############################################################################
 ##                                 Create User                              ##

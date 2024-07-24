@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+<xacro:macro name="kr10_gripper_ros2_control" params="name prefix use_fake_hardware:=^|false fake_sensor_commands:=^|false">
+
+    <ros2_control name="${name}" type="system">
+      <hardware>
+        <plugin>fake_components/GenericSystem</plugin>
+        <param name="fake_sensor_commands">${fake_sensor_commands}</param>
+      </hardware>
+
+      <joint name="${prefix}joint_cylinder_back_left">
+        <command_interface name="position">
+          <param name="min">-1</param>
+          <param name="max">1</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <param name="initial_position">0.0</param>
+      </joint>
+      <joint name="${prefix}joint_cylinder_back_right">
+        <command_interface name="position">
+          <param name="min">-1</param>
+          <param name="max">1</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <param name="initial_position">0.0</param>
+      </joint>
+      <joint name="${prefix}joint_cylinder_front_left">
+        <command_interface name="position">
+          <param name="min">-1</param>
+          <param name="max">1</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <param name="initial_position">0.0</param>
+      </joint>
+      <joint name="${prefix}joint_cylinder_front_right">
+        <command_interface name="position">
+          <param name="min">-1</param>
+          <param name="max">1</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <param name="initial_position">0.0</param>
+      </joint>
+    </ros2_control>
+
+  </xacro:macro>
+</robot>
+

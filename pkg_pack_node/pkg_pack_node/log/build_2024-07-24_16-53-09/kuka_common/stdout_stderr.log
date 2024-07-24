@@ -1,0 +1,27 @@
+-- Install configuration: ""
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//urdf
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//urdf/kuka.ros2_control.xacro
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//urdf/common_materials.xacro
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//urdf/common_constants.xacro
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//urdf/common_colours.xacro
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//config
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//config/ros2_controllers.yaml
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//config/initial_positions.yaml
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//launch
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//launch/controller_manager.launch.py
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common//launch/load_robot.launch.py
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/ament_index/resource_index/package_run_dependencies/kuka_common
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/ament_index/resource_index/parent_prefix_path/kuka_common
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/environment/ament_prefix_path.sh
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/environment/ament_prefix_path.dsv
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/environment/path.sh
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/environment/path.dsv
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/local_setup.bash
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/local_setup.sh
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/local_setup.zsh
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/local_setup.dsv
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/package.dsv
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/ament_index/resource_index/packages/kuka_common
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/cmake/kuka_commonConfig.cmake
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/cmake/kuka_commonConfig-version.cmake
+-- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_common/share/kuka_common/package.xml

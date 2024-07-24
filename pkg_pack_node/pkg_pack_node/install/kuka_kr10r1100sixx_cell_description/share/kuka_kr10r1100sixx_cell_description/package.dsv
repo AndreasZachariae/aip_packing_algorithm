@@ -1,0 +1,3 @@
+source;share/kuka_kr10r1100sixx_cell_description/hook/cmake_prefix_path.ps1
+source;share/kuka_kr10r1100sixx_cell_description/hook/cmake_prefix_path.dsv
+source;share/kuka_kr10r1100sixx_cell_description/hook/cmake_prefix_path.sh
