@@ -1,4 +1,4 @@
-# Umgebung für Testzwecke starten:
+# PackAlgorithm Server für Testzwecke starten:
 
 - Starte Server in Terminal
     - Docker starten
@@ -27,10 +27,18 @@ items = request.objects_to_pick
 ```
 muss für die Simulation deaktiviert werden.
 
+# Solution_Image_Transfer_Server starten:
 
+- Container starten
+- In Ordner navigieren: ros2_ws/src/pkg_pack_node/pkg_pack_node
+- Befehl ausführen:
 
-
-
-
+```
+python3 Solution_image_transfer_server.py
+```
+- Neues Terminal öffnen
+- Mit Container verbinden
+- Service Call ausführen:
+```
 ros2 service call solution_image_transfer aip_packing_planning_interfaces/srv/SolutionImage '{}'
-python3 Solution_image_transfer_server.py 
+```
