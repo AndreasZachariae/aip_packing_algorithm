@@ -1,5 +1,6 @@
 import open3d as o3d
 from Classes.container import Container
+import numpy as np
 
 class Solution:
     
@@ -157,8 +158,9 @@ class Solution:
 
     # Visualisiere die Container in der Lösung
     def visualize(self):
+
         vis = o3d.visualization.Visualizer()
-        vis.create_window()
+        vis.create_window(visible=False)
         offset_x=0
         offset_x_delta=100
         for container in self.containers:
@@ -168,11 +170,32 @@ class Solution:
             offset_x+=offset_x_delta
             offset_x+=container.container.width
 
-        o3d.visualization.ViewControl.set_zoom(vis.get_view_control(), 0.8)
-        vis.run()
+        # Hole die ViewControl-Instanz
+        view_control = vis.get_view_control()
+
+        # Setze die gewünschte Ansicht
+        ctr = view_control
+        ctr.set_front([1.2, 2.0, -1.5])  # Blickrichtung
+        ctr.set_up([0.0, 1.0, 0.0])      # Aufwärtsrichtung
+        ctr.set_zoom(0.8)                # Zoomstufe
+
+        # Render das Bild
+        vis.poll_events()
+        vis.update_renderer()
+
+        # Erhalte den Bildschirmpuffer als Float-Puffer
+        float_buffer = vis.capture_screen_float_buffer(do_render=True)
+
+        # Konvertiere den Float-Puffer in ein numpy-Array und dann in ein Bild
+        image_array = np.asarray(float_buffer)
+        image_array = (image_array * 255).astype(np.uint8)
+        image = o3d.geometry.Image(image_array)
+
         vis.destroy_window()
+
+        # Speichere das Bild
+        o3d.io.write_image("solution_screenshot.png", image)
         
     def __repr__(self):
         
-
         return "packing solution\n  " + "\n  ".join(str(x) for x in self.containers)
