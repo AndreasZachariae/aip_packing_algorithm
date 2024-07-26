@@ -1,6 +1,7 @@
 import open3d as o3d
 from Classes.container import Container
 import numpy as np
+import os
 
 class Solution:
     
@@ -163,21 +164,21 @@ class Solution:
         vis.create_window(visible=False)
         offset_x=0
         offset_x_delta=100
+        
         for container in self.containers:
             for geo in container.get_geometry(offset_x=offset_x):
                 vis.add_geometry(geo)
             
             offset_x+=offset_x_delta
             offset_x+=container.container.width
-
+      
         # Hole die ViewControl-Instanz
         view_control = vis.get_view_control()
 
         # Setze die gewünschte Ansicht
-        ctr = view_control
-        ctr.set_front([1.2, 2.0, -1.5])  # Blickrichtung
-        ctr.set_up([0.0, 1.0, 0.0])      # Aufwärtsrichtung
-        ctr.set_zoom(0.8)                # Zoomstufe
+        view_control.set_front([1.2, 2.0, -1.5])  # Blickrichtung
+        view_control.set_up([0.0, 1.0, 0.0])      # Aufwärtsrichtung
+        view_control.set_zoom(0.8)                # Zoomstufe
 
         # Render das Bild
         vis.poll_events()
@@ -190,12 +191,13 @@ class Solution:
         image_array = np.asarray(float_buffer)
         image_array = (image_array * 255).astype(np.uint8)
         image = o3d.geometry.Image(image_array)
-
+        
         vis.destroy_window()
 
         # Speichere das Bild
         o3d.io.write_image("solution_screenshot.png", image)
-        
+
+
     def __repr__(self):
         
         return "packing solution\n  " + "\n  ".join(str(x) for x in self.containers)

@@ -26,6 +26,7 @@ class PackItemsService(Node):
         items = []
         
         # Aktiviere folgende Zeile für Testzwecke
+        # items = ["Box_Gluehlampe", "Box_Bremsbacke", "Keilriemen_klein", "Tuete"]
         items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete"]
         
         # Aktiviere folgende Zeile für normale Funktionalität

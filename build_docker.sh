@@ -35,6 +35,7 @@ build_image() {
         DOCKER_BUILDKIT=1 \
         docker build \
             --build-arg UID="$uid" \
+            --no-cache \
             --build-arg GID="$gid" \
             --build-arg CACHE_BUST="$(date +%s)" \
             -t aip_packing_planning/ros:humble \

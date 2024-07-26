@@ -1,0 +1,43 @@
+[0.195s] Invoking command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr16_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake --build /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr16_description -- -j16 -l16
+[0.260s] Invoked command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr16_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake --build /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr16_description -- -j16 -l16
+[0.364s] Invoking command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr16_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake --install /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr16_description
+[0.383s] -- Install configuration: ""
+[0.383s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//urdf
+[0.383s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//urdf/robot.urdf.xacro
+[0.383s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//urdf/kr16_2_macro.xacro
+[0.384s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes
+[0.384s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2
+[0.384s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/collision
+[0.384s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/collision/link_2.stl
+[0.384s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/collision/link_6.stl
+[0.384s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/collision/link_5.stl
+[0.384s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/collision/link_4.stl
+[0.384s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/collision/base_link.stl
+[0.385s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/collision/link_1.stl
+[0.385s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/collision/link_3.stl
+[0.385s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/visual
+[0.385s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/visual/link_5.dae
+[0.385s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/visual/link_4.dae
+[0.385s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/visual/link_3.dae
+[0.385s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/visual/base_link.dae
+[0.386s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/visual/link_2.dae
+[0.386s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/visual/link_6.dae
+[0.386s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//meshes/kr16_2/visual/link_1.dae
+[0.387s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//config
+[0.387s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description//config/robot.srdf
+[0.387s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/ament_index/resource_index/package_run_dependencies/kuka_kr16_description
+[0.387s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/ament_index/resource_index/parent_prefix_path/kuka_kr16_description
+[0.387s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/environment/ament_prefix_path.sh
+[0.387s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/environment/ament_prefix_path.dsv
+[0.388s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/environment/path.sh
+[0.388s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/environment/path.dsv
+[0.388s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/local_setup.bash
+[0.388s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/local_setup.sh
+[0.388s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/local_setup.zsh
+[0.388s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/local_setup.dsv
+[0.388s] -- Installing: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/package.dsv
+[0.389s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/ament_index/resource_index/packages/kuka_kr16_description
+[0.389s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/cmake/kuka_kr16_descriptionConfig.cmake
+[0.389s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/cmake/kuka_kr16_descriptionConfig-version.cmake
+[0.389s] -- Up-to-date: /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/install/kuka_kr16_description/share/kuka_kr16_description/package.xml
+[0.409s] Invoked command in '/home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr16_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/docker/ros2_ws/install/pkg_pack_node:/opt/ros/humble /usr/bin/cmake --install /home/docker/ros2_ws/src/pkg_pack_node/pkg_pack_node/build/kuka_kr16_description
