@@ -152,9 +152,10 @@ class Solution:
                         self.index_selected_container = index_container_all_rest_packages # Verwende den Container, der alle restlichen Packstücke packt als Lösungskomponente
     '''Ende der Funktionen für das Greedy Verfahren'''
     def print_packplan(self):
-        for container in self.containers:
-            container.save_packplan()
-            container.save_container()
+        # for container in self.containers:
+        container = self.containers[0]        
+        container.save_packplan()
+        container.save_container()
 
 
     # Visualisiere die Container in der Lösung
@@ -165,12 +166,13 @@ class Solution:
         offset_x=0
         offset_x_delta=100
         
-        for container in self.containers:
-            for geo in container.get_geometry(offset_x=offset_x):
-                vis.add_geometry(geo)
-            
-            offset_x+=offset_x_delta
-            offset_x+=container.container.width
+        # for container in self.containers:
+        container = self.containers[0]
+        for geo in container.get_geometry(offset_x=offset_x):
+            vis.add_geometry(geo)
+        
+        offset_x+=offset_x_delta
+        offset_x+=container.container.width
       
         # Hole die ViewControl-Instanz
         view_control = vis.get_view_control()
