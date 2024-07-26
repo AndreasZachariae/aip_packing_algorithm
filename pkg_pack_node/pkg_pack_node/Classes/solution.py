@@ -176,7 +176,7 @@ class Solution:
         view_control = vis.get_view_control()
 
         # Setze die gewünschte Ansicht
-        view_control.set_front([1.2, 2.0, -1.5])  # Blickrichtung
+        view_control.set_front([10.0, 10.0, 10.0])  # Blickrichtung
         view_control.set_up([0.0, 1.0, 0.0])      # Aufwärtsrichtung
         view_control.set_zoom(0.8)                # Zoomstufe
 
