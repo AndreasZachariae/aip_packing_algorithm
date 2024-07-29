@@ -22,10 +22,9 @@ The output of the packing algorithm is the packplan. It is organized in a ROS2 m
 
 The packages in the packplan are arranged in the optimal packaging sequence. Furthermore, a visualization of the optimal finished container is made and sent back to the LMM via a topic. An example of the visualization can be seen in the following.
 
-    <img src="../images/GifWorkVisual.gif" width="900"/>
+<img src="./pkg_pack_node/pkg_pack_node/solution_screenshot.png"  width="900"/>
 
-
-## How to start the PackAlgorithm server for test purposes:
+## How to start the PackAlgorithm server for test purposes
 
 1. Start server in Terminal
     - Start Docker
