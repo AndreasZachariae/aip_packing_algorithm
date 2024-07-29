@@ -2,6 +2,7 @@ import open3d as o3d
 from Classes.container import Container
 import numpy as np
 import os
+from Classes.container_amount_transfer import container_amount_transfer
 
 class Solution:
     
@@ -10,6 +11,7 @@ class Solution:
         self.container_number = 0 # Anzahl der Container, aus der die Lösung besteht
         self.usage_average = 0 # durschnittliche Containerauslastung der Lösung
         self.costs = 0 # Summe der Kosten aller Container in der Lösung
+        self.cnt_amt_status = False
 
         # Variablen des Greedy Verfahrens
         self.modified_order_data = modified_order_data
@@ -151,11 +153,26 @@ class Solution:
                     if (use_container_all_rest_packages): # Prüfe, ob der Container der alle restlichen Packstücke tragen kann verwendet werden soll
                         self.index_selected_container = index_container_all_rest_packages # Verwende den Container, der alle restlichen Packstücke packt als Lösungskomponente
     '''Ende der Funktionen für das Greedy Verfahren'''
+    
+    # def set_cnt_amt_status(self):
+    #     print("Conaunterns: ", self.containers)
+    #     if len(self.containers) > 1:
+    #         print("\nContainermenge größer als 1, es werden nicht alle Objekte gepackt.\n")
+    #         self.cnt_amt_status = True
+    #     else:
+    #         print("Es passen alle Objekte in den Container.")
+    #         self.cnt_amt_status = False
+
+    #     return self.cnt_amt_status
+    
+    
     def print_packplan(self):
         # for container in self.containers:
         container = self.containers[0]        
         container.save_packplan()
         container.save_container()
+        container_amount_transfer.set_container_amount(len(self.containers))
+        # print("Containermenge: ", container_amount_transfer.get_container_amount())
 
 
     # Visualisiere die Container in der Lösung

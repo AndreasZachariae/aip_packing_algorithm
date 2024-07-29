@@ -1,51 +1,3 @@
-# PackAlgorithm Server für Testzwecke starten:
-
-- Starte Server in Terminal
-    - Docker starten
-    - Befehl ausführen:
-    ```
-    ros2 run pkg_pack_node pack_server
-    ```
-- 2. Terminal öffnen
-    - Mit Docker verbinden:
-    ```
-    docker exec -it #name# bash
-    ```
-    - Service call machen:
-
-    ```
-    ros2 service call pack_planning aip_packing_planning_interfaces/srv/PackSequence '{}'
-    ```
-
-Für die Simulation muss in der Datei "PackAlgorithm_Server.py" die Zeile 
-```
-items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross"]
-```
-aktiviert werden. Hier können Objekte eingetragen werden, welche simuliert werden sollen. Die Zeile
-```
-items = request.objects_to_pick
-```
-muss für die Simulation deaktiviert werden.
-
-# Solution_Image_Transfer_Server starten:
-
-- Container starten
-- In Ordner navigieren: ros2_ws/src/pkg_pack_node/pkg_pack_node
-- Befehl ausführen:
-
-```
-python3 Solution_image_transfer_server.py
-```
-- Neues Terminal öffnen
-- Mit Container verbinden
-- Service Call ausführen:
-```
-ros2 service call solution_image_transfer aip_packing_planning_interfaces/srv/SolutionImage '{}'
-```
-
-
-# Richtiger Text für Wiki:
-
 # Packing Algorithm
 
 This section provides information about the packing algorithm that can be used on the AIP demonstrator. The original algorithm was developed by Matthias Reiplinger in his master thesis in and has been improved several times. Basis of the now implemented version of the packing algorithm is the bachelor thesis of Luisa Schlenker.
@@ -73,3 +25,34 @@ The variables have the following data types:
 The packages in the packplan are arranged in the optimal packaging sequence. Furthermore, a visualization of the optimal finished container is made and sent back to the LMM via a (topic/service!!!anpassen!!!). An example of the visualization can be seen in the following.
 
     <img src="../images/GifWorkVisual.gif" width="900"/>
+
+
+## PackAlgorithm Server für Testzwecke starten:
+
+1. Starte Server in Terminal
+    - Docker starten
+    - Befehl ausführen:
+    ```
+    ros2 run pkg_pack_node pack_server
+    ```
+2. Zweites Terminal öffnen
+    - Mit Docker verbinden:
+    ```
+    docker exec -it aip_packing_planning bash
+    ```
+    - Service call machen:
+
+    ```
+    ros2 service call pack_planning aip_packing_planning_interfaces/srv/PackSequence '{}'
+    ```
+
+
+Für die Simulation muss in der Datei "PackAlgorithm_Server.py" die Zeile 
+```
+items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross"]
+```
+aktiviert werden. Hier können Objekte eingetragen werden, welche simuliert werden sollen. Die Zeile
+```
+items = request.objects_to_pick
+```
+muss für die Simulation deaktiviert werden.

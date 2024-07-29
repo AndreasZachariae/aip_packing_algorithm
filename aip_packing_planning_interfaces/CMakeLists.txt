@@ -38,6 +38,7 @@ set(DEPENDENCIES
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Package.msg"
   "msg/PackageSequence.msg"
+  "msg/SolutionFeedback.msg"
   "srv/PackSequence.srv"
   "srv/SolutionImage.srv"
   DEPENDENCIES ${DEPENDENCIES})
