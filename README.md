@@ -1,10 +1,10 @@
-# Packing Algorithm
+# Packing Algorithm of AIP
 
 This section provides information about the packing algorithm that can be used on the AIP demonstrator. The original algorithm was developed by Matthias Reiplinger in his master thesis in and has been improved several times. Basis of the now implemented version of the packing algorithm is the bachelor thesis of Luisa Schlenker.
 
 Since the packing algorithm was is originally written in a Jupyter notebook, the script was organised in several classes and interfaces were written in order to enable information transfer between classes and use it in combination with the existing Behavior Tree and ROS2. No modifications of the core algorithm were made, with two exceptions: the maximum container number of containers to be packed was limited to one. And the visualization was changed to be able to export an image of the calculated container. The transfer of information is no longer being done with Excel sheets or csv files, but now with dataframes. The material master is implemented using a YAML file.
 
-Due to reasons of clear task seperation, parts of Luisa Schlenker's original work, such as the calculation of the robot's grasp position, were transferred to the grasp planning part.
+Due to reasons of clear task seperation, some parts of Luisa Schlenker's original work, such as the calculation of the robot's grasp position, were transferred to the grasp planning part.
 
 ## Procedure of the actual Implementation
 
@@ -20,39 +20,55 @@ The output of the packing algorithm is the packplan. It is organized in a ROS2 m
 - Rotation index
 - Place coordinates
 
-The variables have the following data types:
-
-The packages in the packplan are arranged in the optimal packaging sequence. Furthermore, a visualization of the optimal finished container is made and sent back to the LMM via a (topic/service!!!anpassen!!!). An example of the visualization can be seen in the following.
+The packages in the packplan are arranged in the optimal packaging sequence. Furthermore, a visualization of the optimal finished container is made and sent back to the LMM via a topic. An example of the visualization can be seen in the following.
 
     <img src="../images/GifWorkVisual.gif" width="900"/>
 
 
-## PackAlgorithm Server für Testzwecke starten:
+## How to start the PackAlgorithm server for test purposes:
 
-1. Starte Server in Terminal
-    - Docker starten
-    - Befehl ausführen:
-    ```
+1. Start server in Terminal
+    - Start Docker
+    - Execute the following command:
+    
+    ```shell
     ros2 run pkg_pack_node pack_server
     ```
-2. Zweites Terminal öffnen
-    - Mit Docker verbinden:
-    ```
+
+2. Execute a service call
+    - Connect to the running container with the following command:
+    
+    ```shell
     docker exec -it aip_packing_planning bash
     ```
-    - Service call machen:
 
-    ```
+    - Execute the service call:
+
+    ```shell
     ros2 service call pack_planning aip_packing_planning_interfaces/srv/PackSequence '{}'
     ```
 
+3. Listen to SolutionFeedback Publisher
+    - Connect to the running container with the following command:
+    
+    ```shell
+    docker exec -it aip_packing_planning bash
+    ```
 
-Für die Simulation muss in der Datei "PackAlgorithm_Server.py" die Zeile 
-```
+    - Listen to the topic "solution_feedback" with the following command:
+
+    ```shell
+    ros2 topic echo solution_feedback
+    ```
+
+**Important**: For the simulation the following line in the "PackAlgorithm_Server.py" file must be **active**. Here the items to be packed can be typed in.
+
+```shell
 items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross"]
 ```
-aktiviert werden. Hier können Objekte eingetragen werden, welche simuliert werden sollen. Die Zeile
-```
+
+The following line mus also be **deactivated**:
+
+```shell
 items = request.objects_to_pick
 ```
-muss für die Simulation deaktiviert werden.
