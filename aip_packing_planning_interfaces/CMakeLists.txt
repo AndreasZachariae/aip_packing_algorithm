@@ -40,7 +40,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/PackageSequence.msg"
   "msg/SolutionFeedback.msg"
   "srv/PackSequence.srv"
-  "srv/SolutionImage.srv"
   DEPENDENCIES ${DEPENDENCIES})
 
 #file (GLOB MSGS msg/*.msg)
