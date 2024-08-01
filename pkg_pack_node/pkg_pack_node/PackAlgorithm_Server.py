@@ -18,7 +18,7 @@ class PackItemsService(Node):
         super().__init__('pack_items_service')
         self.srv = self.create_service(PackSequence, 'pack_planning', self.pack_items_callback)
         
-        self.solution_feedback_publisher = self.create_publisher(SolutionFeedback, 'solution_feedback', 10)
+        # self.solution_feedback_publisher = self.create_publisher(SolutionFeedback, 'solution_feedback', 10)
 
         self.get_logger().info('Service server is ready.')
 
@@ -97,12 +97,12 @@ class PackItemsService(Node):
 
 
         # Erstelle SolutionFeedback-Nachricht
-        feedback = SolutionFeedback()
-        feedback.image = image_msg
-        feedback.message = container_amount_status
+        # feedback = SolutionFeedback()
+        response.feedback.image = image_msg
+        response.feedback.message = container_amount_status
 
-        self.solution_feedback_publisher.publish(feedback)
-        print("\nSolution Feedback published.")
+        # self.solution_feedback_publisher.publish(feedback)
+        print("Image and Status added to response.")
 
         return response
 
