@@ -20,7 +20,7 @@ The output of the packing algorithm is the packplan. It is organized in a ROS2 m
 - Rotation index
 - Place coordinates
 
-The packages in the packplan are arranged in the optimal packaging sequence and is processed into the needed format in the "Packplan_Processing.py" script. Furthermore, a visualization of the optimal finished container is made and sent back to the LMM via a topic. An example of the visualization can be seen in the following.
+The packages in the packplan are arranged in the optimal packaging sequence and is processed into the needed format in the "Packplan_Processing.py" script. Furthermore, a visualization of the optimal finished container is made and sent back via the response. An example of the visualization can be seen in the following.
 
 <img src="./pkg_pack_node/pkg_pack_node/solution_screenshot.png"  width="900"/>
 
