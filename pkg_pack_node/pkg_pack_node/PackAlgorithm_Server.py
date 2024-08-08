@@ -71,7 +71,7 @@ class PackItemsService(Node):
         # Solution Image Feeback erstellen
 
         # Lade das Bild, das die Lösung zeigt
-        cv_image = cv2.imread("solution_screenshot.png")
+        cv_image = cv2.imread("../solution_screenshot.png")
 
         # Überprüfen, ob das Bild erfolgreich geladen wurde
         if cv_image is None:

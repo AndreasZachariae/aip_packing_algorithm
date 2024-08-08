@@ -214,7 +214,7 @@ class Solution:
         vis.destroy_window()
 
         # Speichere das Bild
-        o3d.io.write_image("solution_screenshot.png", image)
+        o3d.io.write_image("../solution_screenshot.png", image)
 
 
     def __repr__(self):
