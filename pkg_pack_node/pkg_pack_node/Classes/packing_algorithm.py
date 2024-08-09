@@ -5,39 +5,38 @@ from Classes.solution import Solution
 import copy
 import pandas as pd
 from Classes.order_data_transfer import order_data_transfer
+import os
+import yaml
 
 # Datenvorverarbeitung
 def data_preparation (order_file_name, container_file_name):
     
     '''Importiere  Bestelldaten und Containerdaten'''
-    
-    # Lese Containerdaten ein
-    # container_list = pd.read_excel(container_file_name, sheet_name = "Container", skiprows = 1)
+
+    # Lese Containerdaten aus YAML-Datei ein
+    os.chdir(os.path.dirname(__file__))
+    with open('../container_master.yaml', 'r') as file:
+        container_master = yaml.load(file, Loader=yaml.FullLoader)
     
     # Erzeuge eine Liste für die Containertypen und speichere die relevanten Informationen darin ab
     container_data = []
-    # for i in range(len(container_list)):
-    #     container_type = (container_list["Länge innen [mm]"][i],container_list["Breite innen [mm]"][i],container_list["Höhe innen [mm]"][i], 
-    #         round(container_list["Fixkosten gesamt"][i],2), round(container_list["Max.Gewicht [kg]"][i],2))
-    #     container_data.append(container_type)
 
-    container_data = [(585,392,188,10,30)] # --> Containerdaten manuell eingegeben
-
-    # Lese die Bestelldaten ein
-    # order_list = pd.read_excel(order_file_name)
-    
-    # # Erzeuge eine Liste für die Packstücke der Bestellung und speichere die relevanten Informationen darin ab
-    # start = 0 # Hilfsvariable für Tabellenindex
-    # end = start + 1 # Hilfsvariable für Tabellenindex
+    # Konvertiere das Dictionary in eine Liste
+    for container in container_master:
+        container_data.append((
+            container["Länge innen [mm]"],
+            container["Breite innen [mm]"],
+            container["Höhe innen [mm]"],
+            container["Fixkosten gesamt"],
+            container["Max. Gewicht [kg]"]
+        ))
+   
+    # Erzeuge eine Liste für die Packstücke der Bestellung und speichere die relevanten Informationen darin ab
     order_data = [] 
-    # for i in range(0, len(order_list)):
-    #     packaging_unit = (int(order_list[start:end]["Länge [mm]"]),int(order_list[start:end]["Breite [mm]"]), int(order_list[start:end]["Höhe [mm]"]), float(order_list[start:end]["Gewicht [kg]"]), 
-    #                       str(order_list["Orientierungen"][start]))
-    #     order_data.append(packaging_unit)
-    #     start = start + 1
-    #     end = end + 1
 
+    # Hole Bestelldaten
     order_data = order_data_transfer.get_order_data()
+    
     '''Bestelldaten und Containerdaten importiert'''
     
     # Entferne Label aus Liste

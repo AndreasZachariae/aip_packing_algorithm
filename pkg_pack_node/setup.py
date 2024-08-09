@@ -17,7 +17,7 @@ setup(
     maintainer_email='robot@todo.todo',
     description='TODO: Package description',
     license='Apache-2.0',
-    tests_require=['pytest'],
+    # tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'pack_node = pkg_pack_node.pack_node:main',

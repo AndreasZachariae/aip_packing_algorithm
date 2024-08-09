@@ -16,6 +16,10 @@ class Pack_Algorithm:
 
     # Konvertiere das Dictionary in ein DataFrame
     material_master = pd.DataFrame(material_master)
+    # Add one cm to Länge and Breite of material_master
+    
+    material_master["Länge [mm]"] += 10
+    material_master["Breite [mm]"] += 10
 
     # Für Simulation ohne ROS die folgende Zeile aktivieren
     # order = ["Box_Gluehlampe", "Keilriemen_gross", "Tuete", "Box_Bremsbacke", "Box_Wischblatt", "Keilriemen_klein"]
@@ -32,7 +36,7 @@ class Pack_Algorithm:
         for index, row in filtered.iterrows():
             order_data.append((
                 item, # wird nur hinzugefügt um später in Ausgabe zu schreiben
-                row["Länge [mm]"], 
+                row["Länge [mm]"],
                 row["Breite [mm]"], 
                 row["Höhe [mm]"], 
                 row["Gewicht [kg]"], 

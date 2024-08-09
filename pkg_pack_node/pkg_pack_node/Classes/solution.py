@@ -1,6 +1,8 @@
 import open3d as o3d
 from Classes.container import Container
 import numpy as np
+import os
+from Classes.container_amount_transfer import container_amount_transfer
 
 class Solution:
     
@@ -9,6 +11,7 @@ class Solution:
         self.container_number = 0 # Anzahl der Container, aus der die Lösung besteht
         self.usage_average = 0 # durschnittliche Containerauslastung der Lösung
         self.costs = 0 # Summe der Kosten aller Container in der Lösung
+        self.cnt_amt_status = False
 
         # Variablen des Greedy Verfahrens
         self.modified_order_data = modified_order_data
@@ -150,10 +153,26 @@ class Solution:
                     if (use_container_all_rest_packages): # Prüfe, ob der Container der alle restlichen Packstücke tragen kann verwendet werden soll
                         self.index_selected_container = index_container_all_rest_packages # Verwende den Container, der alle restlichen Packstücke packt als Lösungskomponente
     '''Ende der Funktionen für das Greedy Verfahren'''
+    
+    # def set_cnt_amt_status(self):
+    #     print("Conaunterns: ", self.containers)
+    #     if len(self.containers) > 1:
+    #         print("\nContainermenge größer als 1, es werden nicht alle Objekte gepackt.\n")
+    #         self.cnt_amt_status = True
+    #     else:
+    #         print("Es passen alle Objekte in den Container.")
+    #         self.cnt_amt_status = False
+
+    #     return self.cnt_amt_status
+    
+    
     def print_packplan(self):
-        for container in self.containers:
-            container.save_packplan()
-            container.save_container()
+        # for container in self.containers:
+        container = self.containers[0]        
+        container.save_packplan()
+        container.save_container()
+        container_amount_transfer.set_container_amount(len(self.containers))
+        # print("Containermenge: ", container_amount_transfer.get_container_amount())
 
 
     # Visualisiere die Container in der Lösung
@@ -163,21 +182,22 @@ class Solution:
         vis.create_window(visible=False)
         offset_x=0
         offset_x_delta=100
-        for container in self.containers:
-            for geo in container.get_geometry(offset_x=offset_x):
-                vis.add_geometry(geo)
-            
-            offset_x+=offset_x_delta
-            offset_x+=container.container.width
-
+        
+        # for container in self.containers:
+        container = self.containers[0]
+        for geo in container.get_geometry(offset_x=offset_x):
+            vis.add_geometry(geo)
+        
+        offset_x+=offset_x_delta
+        offset_x+=container.container.width
+      
         # Hole die ViewControl-Instanz
         view_control = vis.get_view_control()
 
         # Setze die gewünschte Ansicht
-        ctr = view_control
-        ctr.set_front([1.2, 2.0, -1.5])  # Blickrichtung
-        ctr.set_up([0.0, 1.0, 0.0])      # Aufwärtsrichtung
-        ctr.set_zoom(0.8)                # Zoomstufe
+        view_control.set_front([10.0, 10.0, 10.0])  # Blickrichtung
+        view_control.set_up([0.0, 1.0, 0.0])      # Aufwärtsrichtung
+        view_control.set_zoom(0.8)                # Zoomstufe
 
         # Render das Bild
         vis.poll_events()
@@ -190,12 +210,13 @@ class Solution:
         image_array = np.asarray(float_buffer)
         image_array = (image_array * 255).astype(np.uint8)
         image = o3d.geometry.Image(image_array)
-
+        
         vis.destroy_window()
 
         # Speichere das Bild
-        o3d.io.write_image("solution_screenshot.png", image)
-        
+        o3d.io.write_image("../solution_screenshot.png", image)
+
+
     def __repr__(self):
         
         return "packing solution\n  " + "\n  ".join(str(x) for x in self.containers)

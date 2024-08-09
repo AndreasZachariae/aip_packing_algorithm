@@ -789,8 +789,14 @@ class Container:
         lines = [[0, 1], [0, 2], [1, 3], [2, 3], [4, 5], [4, 6], [5, 7], [6, 7], [0, 4], [1, 5], [2, 6], [3, 7]]
         colors = [[0, 0, 0] for i in range(len(lines))]
 
-        line_set = o3d.geometry.LineSet(points=o3d.utility.Vector3dVector(points), lines=o3d.utility.Vector2iVector(lines))
-        line_set.colors = o3d.utility.Vector3dVector(colors)    
+        # line_set = o3d.geometry.LineSet(points=o3d.utility.Vector3dVector(points), lines=o3d.utility.Vector2iVector(lines))
+        line_set = o3d.geometry.LineSet()
+        # line_set.points = o3d.utility.Vector3dVector(points)
+        line_set.points = o3d.utility.Vector3dVector(points)
+
+        line_set.lines = o3d.utility.Vector2iVector(lines)
+
+        line_set.colors = o3d.utility.Vector3dVector(colors)
         return line_set
 
     def save_packplan(self):
@@ -828,7 +834,6 @@ class Container:
     
     def get_geometry(self, offset_x=0, offset_y=0, offset_z=0):
         line_set=self.get_lineset(offset_x, offset_y, offset_z)
-        
         geo_list=[line_set]
         for artloc in self.article_locations:
             mesh_box = o3d.geometry.TriangleMesh.create_box(width=artloc.width, height=artloc.height, depth=artloc.length)

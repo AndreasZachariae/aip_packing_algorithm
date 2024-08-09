@@ -4,21 +4,23 @@ import rclpy
 from rclpy.node import Node
 from aip_packing_planning_interfaces.srv import PackSequence
 from aip_packing_planning_interfaces.msg import Package
+from aip_packing_planning_interfaces.msg import SolutionFeedback
 from geometry_msgs.msg import Vector3, Point
 from Classes.items_transfer import items_transfer
 from Classes.packplan import Packplan
-
+import cv2
+from cv_bridge import CvBridge
+from Classes.container_amount_transfer import container_amount_transfer
 
 class PackItemsService(Node):
 
     def __init__(self):
         super().__init__('pack_items_service')
         self.srv = self.create_service(PackSequence, 'pack_planning', self.pack_items_callback)
-        # self.packing_client = self.create_client(PackSequence, 'pack_planning')
+        
+        # self.solution_feedback_publisher = self.create_publisher(SolutionFeedback, 'solution_feedback', 10)
 
         self.get_logger().info('Service server is ready.')
-        print("Service Server is running...")
-
 
 
     def pack_items_callback(self, request, response):
@@ -26,12 +28,12 @@ class PackItemsService(Node):
         items = []
         
         # Aktiviere folgende Zeile für Testzwecke
-        items = ["Box_Gluehlampe", "Box_Wischblatt", "Keilriemen_gross", "Box_Bremsbacke", "Keilriemen_klein", "Tuete"]
+        # items = ["Box_Gluehlampe", "Box_Bremsbacke", "Keilriemen_klein", "Tuete"]
         
         # Aktiviere folgende Zeile für normale Funktionalität
-        # items = request.objects_to_pick
+        items = request.objects_to_pick
 
-        print("Items: ", items)
+        # print("Items: ", items)
 
         # Setze Request
         items_transfer.set_items(items)
@@ -42,10 +44,7 @@ class PackItemsService(Node):
     
         result = Packplan.get_packplan()
         
-        # response = PackSequence.Response()
-        
         # Separiere den Packplan
-
         class_name = result['label_odtf'].tolist()
         dimensions = result[['length', 'width', 'height']].values.tolist()
         weight = result['weight'].tolist()
@@ -66,9 +65,44 @@ class PackItemsService(Node):
             package.place_coordinates.z = place_coordinates[i][2]
             response.package.packages.append(package)
 
-        # Erstellen des Response
-
         print("Response:\n", response)
+        
+        
+        # Solution Image Feeback erstellen
+
+        # Lade das Bild, das die Lösung zeigt
+        cv_image = cv2.imread("../solution_screenshot.png")
+
+        # Überprüfen, ob das Bild erfolgreich geladen wurde
+        if cv_image is None:
+            raise IOError("Bild konnte nicht geladen werden")
+
+        # Konvertiere das OpenCV-Bild in eine ROS2 Image-Nachricht
+        bridge = CvBridge()
+        image_msg = bridge.cv2_to_imgmsg(cv_image, "passthrough")
+        
+        # test = bridge.imgmsg_to_cv2(image_msg, "passthrough")  # Konvertiere die ROS 2 Image-Nachricht zurück in ein OpenCV-Bild
+        
+        
+        # Publisher für Übergabe des Containermengenstatus
+        container_amount = container_amount_transfer.get_container_amount()
+        print("\nContainermenge: ", container_amount)
+        
+        if container_amount > 1:
+            container_amount_status = "Containermenge größer als 1, es werden nicht alle Pakete gepackt."
+            print("Containermenge größer als 1, es werden nicht alle Pakete gepackt.")
+        else:
+            container_amount_status = "Alle Pakete werden gepackt."
+            print("Alle Pakete werden gepackt.")
+
+
+        # Erstelle SolutionFeedback-Nachricht
+        # feedback = SolutionFeedback()
+        response.feedback.image = image_msg
+        response.feedback.message = container_amount_status
+
+        # self.solution_feedback_publisher.publish(feedback)
+        print("Image and Status added to response.")
 
         return response
 
