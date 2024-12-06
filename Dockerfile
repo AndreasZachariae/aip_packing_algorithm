@@ -72,7 +72,6 @@ USER $USER
 WORKDIR /home/$USER/ros2_ws
 RUN rosdep update --rosdistro $ROS_DISTRO
 RUN rosdep install --from-paths src --ignore-src -y
-RUN echo "source /home/$USER/ros2_ws/install/setup.bash" >> /home/$USER/.bashrc
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --symlink-install \
     --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 RUN echo "source /home/$USER/ros2_ws/install/setup.bash" >> /home/$USER/.bashrc
